@@ -1,0 +1,21 @@
+[
+{
+  "modid": "Agriculture",
+  "name": "Agriculture",
+  "description": "Agriculture",
+  "credits": "",
+  "logoFile": "",
+  "version": "2.0.1",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Freyjadono"
+  ],
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Flour",
+        "type":"base",
+        "method":"process",
+        "recipe":["Wheat"],
+        "hungerPoints":2
+    },
+    {
+        "name":"Dough",
+        "type":"base",
+        "method":"bake",
+        "recipe":["Flour"],
+        "hungerPoints":2
+    },
+    {
+        "name":"Loaf of Bread",
+        "type":"edible",
+        "method":"bake",
+        "recipe":["Dough"]
+    }
+]
