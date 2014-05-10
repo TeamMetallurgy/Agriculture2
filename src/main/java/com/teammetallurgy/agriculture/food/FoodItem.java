@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.teammetallurgy.agriculture.cooking.IMethod;
+import com.teammetallurgy.agriculture.cooking.MethodBake;
+import com.teammetallurgy.agriculture.cooking.MethodFactory;
+import com.teammetallurgy.agriculture.cooking.MethodProcess;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -158,14 +162,12 @@ public class FoodItem extends ItemFood
                     healAmount += 2;
                 }
             }
-            if (this.methods.get(itemDamage) == Methods.bake)
-            {
-                healAmount += 3;
-            }
 
-            if (this.methods.get(itemDamage) == Methods.process)
+            IMethod method = MethodFactory.getMethod(this.methods.get(itemDamage));
+
+            if(method != null)
             {
-                healAmount += 2;
+                healAmount += method.getHungerBonus();
             }
         }
         return healAmount;

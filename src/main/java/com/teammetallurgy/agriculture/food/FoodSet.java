@@ -86,7 +86,7 @@ public class FoodSet
                 this.itemStacks.put(tag, new ItemStack(item, 1, this.meta));
             }
 
-            identifier = "";
+            identifier = "food";
             if (food.type == Food.FoodType.edible)
             {
                 item = this.createItem(this.defaultItem, this.meta++, tag, identifier);
