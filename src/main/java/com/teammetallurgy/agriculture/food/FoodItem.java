@@ -37,7 +37,7 @@ public class FoodItem extends ItemFood
         this.healAmounts.put(0, 2);
         this.setTextureName(Agriculture.MODID + ":food_item_default");
         this.setUnlocalizedName("food.item." + postfix);
-        this.setCreativeTab(Agriculture.instance.creativeTabItems);
+        this.setCreativeTab(Agriculture.instance.creativeTabFood);
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
     }

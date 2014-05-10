@@ -27,7 +27,7 @@ public class Agriculture
     @SidedProxy(clientSide = "com.teammetallurgy.agriculture.networking.ClientProxy", serverSide = "com.teammetallurgy.agriculture.networking.CommonProxy")
     public static CommonProxy proxy;
 
-    public CreativeTabs creativeTabItems = new CreativeTab(Agriculture.MODID + ".Items");
+    public CreativeTabs creativeTabFood = new CreativeTab(Agriculture.MODID + ".Food");
 
     @EventHandler
     public void init(FMLInitializationEvent event)

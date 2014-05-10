@@ -20,12 +20,6 @@
         "recipe":["Dough"]
     },
     {
-        "name":"Apple Gelatin",
-        "type":"edible",
-        "method":"",
-        "recipe":[]
-    },
-    {
         "name":"Apple Jelly",
         "type":"edible",
         "method":"",
@@ -212,7 +206,7 @@
         "recipe":[]
     },
     {
-        "name":"Chocolate Chip Cookies",
+        "name":"Chocolate Chip Cookie",
         "type":"edible",
         "method":"",
         "recipe":[]
@@ -290,7 +284,7 @@
         "recipe":[]
     },
     {
-        "name":"Double Bacon Cheese Burger",
+        "name":"Double Bacon Cheeseburger",
         "type":"edible",
         "method":"",
         "recipe":[]
@@ -386,7 +380,7 @@
         "recipe":[]
     },
     {
-        "name":"Mashed Potatoes ",
+        "name":"Mashed Potatoes",
         "type":"edible",
         "method":"",
         "recipe":[]
@@ -404,13 +398,13 @@
         "recipe":[]
     },
     {
-        "name":"PB and Apple Jelly Sandwich ",
+        "name":"PBJ Sandwich Apple",
         "type":"edible",
         "method":"",
         "recipe":[]
     },
     {
-        "name":"PB and Strawberry Jelly Sandwich",
+        "name":"PBJ Sandwich Strawberry",
         "type":"edible",
         "method":"",
         "recipe":[]
@@ -632,25 +626,19 @@
         "recipe":[]
     },
     {
-        "name":"Toasted PBj Sandwich Apple",
+        "name":"Toasted PBJ Sandwich Apple",
         "type":"edible",
         "method":"",
         "recipe":[]
     },
     {
-        "name":"Toasted PBj Sandwich Strawberry",
+        "name":"Toasted PBJ Sandwich Strawberry",
         "type":"edible",
         "method":"",
         "recipe":[]
     },
     {
         "name":"Toasted PB Sandwich",
-        "type":"edible",
-        "method":"",
-        "recipe":[]
-    },
-    {
-        "name":"",
         "type":"edible",
         "method":"",
         "recipe":[]

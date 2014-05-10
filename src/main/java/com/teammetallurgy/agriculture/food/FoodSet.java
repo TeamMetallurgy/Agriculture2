@@ -50,7 +50,7 @@ public class FoodSet
         String postfix = this.name.toLowerCase();
         postfix = postfix.replace(" ", ".");
 
-        this.defaultItem = new FoodItem(postfix + ".crop", 2);
+        this.defaultItem = new FoodItem(postfix, 2);
     }
 
     public void load(InputStream inputStream)
@@ -82,14 +82,15 @@ public class FoodSet
             if (food.type == Food.FoodType.base)
             {
                 item = this.createItem(this.defaultItem, this.meta++, tag, identifier);
-                item.addSubItem(this.meta, food.getName(), 0, texture + "_" + identifier, food.method);
+                item.addSubItem(this.meta, food.getName(), 0, texture, food.method);
                 this.itemStacks.put(tag, new ItemStack(item, 1, this.meta));
             }
 
+            identifier = "";
             if (food.type == Food.FoodType.edible)
             {
                 item = this.createItem(this.defaultItem, this.meta++, tag, identifier);
-                item.addSubItem(this.meta, food.getName(), 1, texture + "_" + identifier, food.method);
+                item.addSubItem(this.meta, food.getName(), 1, texture, food.method);
                 this.itemStacks.put(tag, new ItemStack(item, 1, this.meta));
             }
 
@@ -102,8 +103,7 @@ public class FoodSet
 
     private FoodItem createItem(FoodItem foodItem, int meta, String tag, String identifier)
     {
-
-        if (meta == 0)
+        if(meta == 0)
         {
             GameRegistry.registerItem(foodItem, this.name + "." + identifier);
         }
