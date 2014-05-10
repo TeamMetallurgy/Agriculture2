@@ -18,5 +18,677 @@
         "type":"edible",
         "method":"bake",
         "recipe":["Dough"]
+    },
+    {
+        "name":"Apple Gelatin",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Apple Jelly",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Apple Jelly Toast",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Apple Mush",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Apple Pie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Bacon",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Bacon Cheeseburger",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Bacon Cheese Fries",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Batter",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Beef Jerky",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Beer",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Bowl of Raw Pasta",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Bread Crumbs",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Breaded Chicken",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Butter",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Butter Cookie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Butter Cookie Dough",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Buttered Toast",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Candied Apple",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Caramel",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Caramel Apple",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Caramel Apple With Nuts",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Carrot Cake",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Carrot Cake Batter",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cheese",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cheeseburger",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cheese Fries",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cheese Sandwich",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cheesy Bacon Potatoes",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cheesy Potatoes",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chicken Nuggets",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chocolate",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chocolate Chip Cookies",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chocolate Chip Cookie Dough",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chocolate Covered Strawberries",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chocolate Ice Cream",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chocolate Sauce",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Chocolate Ice Cream Mix",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cinnamon",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cinnamon And Sugar",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cinnamon Toast",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Cooking Oil",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Crushed Peanuts",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Deluxe Hot Cocoa",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Diced Potatoes",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Double Bacon Cheese Burger",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"French Fries",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"French Toast",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Fried Chicken",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Gelatin",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Grilled Cheese",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Ground Beef",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Ground Chicken",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Ground Cinnamon",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Ground Pork",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Hamburger",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Hamburger Patty",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Hot Cocoa",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Ice Cream Mix",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Macaroni And Cheese",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Marshmallows",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Mashed Potatoes ",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Milk",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Pasta",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"PB and Apple Jelly Sandwich ",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"PB and Strawberry Jelly Sandwich",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"PB Sandwich",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Peanut Butter",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Peanut Butter Cookie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Peanut Butter Cookie Dough",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Peanuts",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Pumpkin Cookie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Pumpkin Cookie Dough",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Raw Apple Pie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Raw Chicken Nuggets",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Raw French Toast",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Raw Hamburger Patty",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Raw Strawberry Pie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Roasted Marshmallows",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Roasted Peanuts",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Salt",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Salted Beef",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Salted Pork",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Shortcake",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Slice of Bread",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Slice of Cheese",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Snicker Doodle",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Snicker Doodle Dough",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Gelatin",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Ice Cream",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Ice Cream Mix",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Jelly",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Jelly Cookie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Jelly Cookie Dough",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Jelly Toast",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Mush",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry Pie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Strawberry ShortCake",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Sugar Cookie",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Sugar Cookie Dough",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Toast",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Toasted PBj Sandwich Apple",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Toasted PBj Sandwich Strawberry",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Toasted PB Sandwich",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Vanilla",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Vanilla Ice Cream",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Vanilla Ice Cream Chocolate Sauce",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Vanilla Ice Cream Mix",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Vinegar",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
+    },
+    {
+        "name":"Whipped Cream",
+        "type":"edible",
+        "method":"",
+        "recipe":[]
     }
 ]

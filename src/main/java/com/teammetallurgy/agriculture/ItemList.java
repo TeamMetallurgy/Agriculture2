@@ -22,7 +22,6 @@ public class ItemList
 
     public static void preInit()
     {
-        // TODO Auto-generated method stub
         ItemList.initFoodList();
         OreDictionary.registerOre("cropWheat", new ItemStack(Items.wheat));
     }
@@ -35,14 +34,22 @@ public class ItemList
 
             for (String food : foodSet.getRecipes())
             {
-                ItemStack itemStack = foodSet.getItemStack(food);
-
-                Item item = itemStack.getItem();
-                if ((item != null) && (item instanceof FoodItem))
-                {
-                    ((FoodItem) item).calculateValues(itemStack.getItemDamage());
-                }
+                calculateValuesFor(foodSet.getItemStack(food));
             }
+        }
+    }
+
+    private static void calculateValuesFor(ItemStack itemStack)
+    {
+        if (itemStack == null)
+        {
+            return;
+        }
+
+        Item item = itemStack.getItem();
+        if ((item != null) && (item instanceof FoodItem))
+        {
+            ((FoodItem) item).calculateValues(itemStack.getItemDamage());
         }
     }
 
@@ -61,7 +68,7 @@ public class ItemList
             {
                 ItemList.injectMetalSet(set, resource.openStream());
             }
-            catch (IOException e)
+            catch (IOException ignored)
             {
             }
         }
@@ -86,7 +93,7 @@ public class ItemList
             {
                 String[] recipes = foodSet.getRecipe(food);
 
-                ArrayList<ItemStack> itemStacks = ItemList.getItemFromString(recipes);
+                ArrayList<ItemStack> itemStacks = ItemList.getItemsFrom(recipes);
 
                 ItemStack itemStack = foodSet.getItemStack(food);
 
@@ -99,7 +106,7 @@ public class ItemList
         }
     }
 
-    private static ArrayList<ItemStack> getItemFromString(String[] recipes)
+    private static ArrayList<ItemStack> getItemsFrom(String[] recipes)
     {
         ArrayList<ItemStack> itemStacks = new ArrayList<ItemStack>();
         for (String recipe : recipes)

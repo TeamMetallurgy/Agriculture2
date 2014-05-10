@@ -5,12 +5,12 @@ public class Food
     public static enum FoodType
     {
         base, edible
-    };
+    }
 
     public static enum Methods
     {
         process, bake
-    };
+    }
 
     private String name;
 
