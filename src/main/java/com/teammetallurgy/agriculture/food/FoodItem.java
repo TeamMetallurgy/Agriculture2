@@ -94,7 +94,7 @@ public class FoodItem extends ItemFood
         if (this.names.get(meta) != null)
         {
             String unlocalizedName = this.names.get(meta);
-            unlocalizedName = unlocalizedName.replace(" ", "").toLowerCase();
+            unlocalizedName = unlocalizedName.replace(" ", ".").toLowerCase();
 
             String prefix = "item." + Agriculture.MODID.toLowerCase() + ".";
             return prefix + unlocalizedName;
