@@ -5,17 +5,25 @@
   "description": "Agriculture",
   "credits": "",
   "logoFile": "",
-  "version": "2.0.1",
+  "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": [
+    "Team Metallurgy",
     "Freyjadono"
   ],
   "screenshots": [
   ],
   "parent":"",
+  "requiredMods" : [
+     "MetallurgyCore@[4.0.4,]"
+  ],
   "dependencies": [
-  ]
+    "MetallurgyCore@[4.0.4,]"
+   ],
+  "dependants": [
+   ],
+  "useDependencyInformation": "true"
 }
 ]

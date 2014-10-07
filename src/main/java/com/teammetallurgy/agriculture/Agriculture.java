@@ -15,11 +15,12 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod(name = Agriculture.MODNAME, modid = Agriculture.MODID)
+@Mod(name = Agriculture.MODNAME, modid = Agriculture.MODID, version = Agriculture.VERSION, useMetadata = true)
 public class Agriculture
 {
     public static final String MODNAME = "Agriculture";
     public static final String MODID = "Agriculture";
+    public static final String VERSION = "2.0";
 
     @Mod.Instance(Agriculture.MODID)
     public static Agriculture instance;

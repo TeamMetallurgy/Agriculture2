@@ -51,7 +51,7 @@ task buildInfo() {
     def proc = cmd.execute()
     proc.waitFor()
     if (proc.exitValue() == 0) {
-        ext.revision = proc.text.trim()
+        ext.revision = "DEV." + proc.text.trim()
     } else {
         ext.revision = "GITBORK"
     }
@@ -77,7 +77,7 @@ version = "${config.minecraft_version}-${artifact_version}"
 processResources
 {
     // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
+    inputs.property "version", project.artifact_version
     inputs.property "mcversion", project.minecraft.version
     
     // replace stuff in mcmod.info, nothing else
@@ -85,7 +85,7 @@ processResources
         include 'mcmod.info'
                 
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version':project.artifact_version, 'mcversion':project.minecraft.version
     }
         
     // copy everything else, thats not the mcmod.info
