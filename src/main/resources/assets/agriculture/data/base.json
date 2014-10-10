@@ -40,8 +40,8 @@
     {
         "name":"Apple Jelly",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Apple Mush", "Sugar"]
     },
     {
         "name":"Apple Jelly Toast",
@@ -52,8 +52,8 @@
     {
         "name":"Apple Mush",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Red Apple"]
     },
     {
         "name":"Apple Pie",
@@ -106,8 +106,8 @@
     {
         "name":"Bread Crumbs",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Bread"]
     },
     {
         "name":"Breaded Chicken",
@@ -118,8 +118,8 @@
     {
         "name":"Butter",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Milk"]
     },
     {
         "name":"Butter Cookie",
@@ -214,8 +214,8 @@
     {
         "name":"Chicken Nuggets",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"fry",
+        "recipe":["Raw Chicken Nuggets"]
     },
     {
         "name":"Chocolate",
@@ -274,8 +274,8 @@
     {
         "name":"Cinnamon And Sugar",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Ground Cinnamon", "Sugar"]
     },
     {
         "name":"Cinnamon Toast",
@@ -286,14 +286,14 @@
     {
         "name":"Cooking Oil",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Roasted Peanuts", "Water"]
     },
     {
         "name":"Crushed Peanuts",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Roasted Peanuts"]
     },
     {
         "name":"Deluxe Hot Cocoa",
@@ -316,8 +316,8 @@
     {
         "name":"French Fries",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"fry",
+        "recipe":["Diced Potatoes"]
     },
     {
         "name":"French Toast",
@@ -328,14 +328,14 @@
     {
         "name":"Fried Chicken",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"fry",
+        "recipe":["Breaded Chicken"]
     },
     {
         "name":"Gelatin",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Bone"]
     },
     {
         "name":"Grilled Cheese",
@@ -346,26 +346,26 @@
     {
         "name":"Ground Beef",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Raw Beef"]
     },
     {
         "name":"Ground Chicken",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Raw Chicken"]
     },
     {
         "name":"Ground Cinnamon",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Cinnamon"]
     },
     {
         "name":"Ground Pork",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Raw Pork"]
     },
     {
         "name":"Hamburger",
@@ -448,8 +448,8 @@
     {
         "name":"Peanut Butter",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Crushed Peanuts", "Sugar"]
     },
     {
         "name":"Peanut Butter Cookie",
@@ -604,8 +604,8 @@
     {
         "name":"Strawberry Jelly",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Strawberry Mush", "Sugar"]
     },
     {
         "name":"Strawberry Jelly Cookie",
@@ -628,8 +628,8 @@
     {
         "name":"Strawberry Mush",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Strawberry"]
     },
     {
         "name":"Strawberry Pie",
@@ -712,7 +712,7 @@
     {
         "name":"Whipped Cream",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"process",
+        "recipe":["Milk", "Sugar"]
     }
 ]
