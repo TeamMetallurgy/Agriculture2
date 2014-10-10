@@ -244,8 +244,8 @@
     {
         "name":"Chocolate Ice Cream",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"freeze",
+        "recipe":["Chocolate Ice Cream Mix"]
     },
     {
         "name":"Chocolate Sauce",
@@ -586,8 +586,8 @@
     {
         "name":"Strawberry Ice Cream",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"freeze",
+        "recipe":["Strawberry Ice Cream Mix"]
     },
     {
         "name":"Strawberry Ice Cream Chocolate Sauce",
@@ -688,8 +688,8 @@
     {
         "name":"Vanilla Ice Cream",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"freeze",
+        "recipe":["Vanilla Ice Cream Mix"]
     },
     {
         "name":"Vanilla Ice Cream Chocolate Sauce",
