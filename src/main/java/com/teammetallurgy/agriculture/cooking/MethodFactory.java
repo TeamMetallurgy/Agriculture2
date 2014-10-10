@@ -19,7 +19,7 @@ public class MethodFactory
                 return new MethodFreeze();
             case fry:
                 return new MethodFry();
-            case prepair:
+            case prepare:
                 return new MethodPrepair();
             case process:
                 return new MethodProcess();

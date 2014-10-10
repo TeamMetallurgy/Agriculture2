@@ -9,8 +9,8 @@
     {
         "name":"Dough",
         "type":"base",
-        "method":"bake",
-        "recipe":["Flour"],
+        "method":"prepare",
+        "recipe":["Water", "Flour"],
         "hungerPoints":2
     },
     {
@@ -18,6 +18,24 @@
         "type":"edible",
         "method":"bake",
         "recipe":["Dough"]
+    },
+    {
+        "name":"Apple Cinnamon Cookie",
+        "type":"edible",
+        "method":"bake",
+        "recipe":["Apple Cinnamon Cookie Dough"]
+    },
+    {
+        "name":"Apple Cinnamon Cookie Dough",
+        "type":"edible",
+        "method":"prepare",
+        "recipe":["Dough", "Apple Mush", "Ground Cinnamon"]
+    },
+    {
+        "name":"Apple Gelatin",
+        "type":"edible",
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Water", "Gelatin", "Apple Mush"]
     },
     {
         "name":"Apple Jelly",
@@ -28,8 +46,8 @@
     {
         "name":"Apple Jelly Toast",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Buttered Toast", "Apple Jelly"]
     },
     {
         "name":"Apple Mush",
@@ -52,20 +70,20 @@
     {
         "name":"Bacon Cheeseburger",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Cheeseburger", "Bacon"]
     },
     {
         "name":"Bacon Cheese Fries",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Cheese Fries", "Bacon"]
     },
     {
         "name":"Batter",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Bowl", "Egg", "Butter", "Flour"]
     },
     {
         "name":"Beef Jerky",
@@ -94,8 +112,8 @@
     {
         "name":"Breaded Chicken",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Raw Chicken", "Bread Crumbs"]
     },
     {
         "name":"Butter",
@@ -112,14 +130,14 @@
     {
         "name":"Butter Cookie Dough",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Dough", "Butter"]
     },
     {
         "name":"Buttered Toast",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Toast", "Butter"]
     },
     {
         "name":"Candied Apple",
@@ -136,14 +154,14 @@
     {
         "name":"Caramel Apple",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Stick", "Red Apple", "Caramel"]
     },
     {
         "name":"Caramel Apple With Nuts",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Caramel Apple", "Crushed Peanuts"]
     },
     {
         "name":"Carrot Cake",
@@ -154,44 +172,44 @@
     {
         "name":"Carrot Cake Batter",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Bowl", "Batter", "Carrot"]
     },
     {
         "name":"Cheese",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Milk", "Vinegar"]
     },
     {
         "name":"Cheeseburger",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Hamburger", "Slice of Cheese"]
     },
     {
         "name":"Cheese Fries",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["French Fries", "Cheese"]
     },
     {
         "name":"Cheese Sandwich",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Slice of Bread", "Slice of Cheese", "Slice of Bread"]
     },
     {
         "name":"Cheesy Bacon Potatoes",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Cheesy Potatoes", "Bacon"]
     },
     {
         "name":"Cheesy Potatoes",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Mashed Potatos", "Cheese"]
     },
     {
         "name":"Chicken Nuggets",
@@ -202,8 +220,8 @@
     {
         "name":"Chocolate",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Milk", "Coco beans", "Sugar"]
     },
     {
         "name":"Chocolate Chip Cookie",
@@ -214,14 +232,14 @@
     {
         "name":"Chocolate Chip Cookie Dough",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Dough", "Chocolate"]
     },
     {
         "name":"Chocolate Covered Strawberries",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Strawberry", "Chocolate"]
     },
     {
         "name":"Chocolate Ice Cream",
@@ -236,10 +254,16 @@
         "recipe":["Chocolate"]
     },
     {
+        "name":"Chocolate Ice Cream Chocolate Sauce",
+        "type":"edible",
+        "method":"prepare",
+        "recipe":["Chocolate Ice Cream", "Chocolate Sauce"]
+    },
+    {
         "name":"Chocolate Ice Cream Mix",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ice Cream Mix", "Chocolate"]
     },
     {
         "name":"Cinnamon",
@@ -256,8 +280,8 @@
     {
         "name":"Cinnamon Toast",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Buttered Toast", "Cinnamon And Sugar"]
     },
     {
         "name":"Cooking Oil",
@@ -274,20 +298,20 @@
     {
         "name":"Deluxe Hot Cocoa",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Hot Cocoa", "Wipped Cream", "Chocolate", "Marshmellow"]
     },
     {
         "name":"Diced Potatoes",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Potato"]
     },
     {
         "name":"Double Bacon Cheeseburger",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Bacon Cheeseburger", "Bacon Cheeseburger"]
     },
     {
         "name":"French Fries",
@@ -346,8 +370,8 @@
     {
         "name":"Hamburger",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Slice of Bread", "Hamburger Patty", "Slice of Bread"]
     },
     {
         "name":"Hamburger Patty",
@@ -364,26 +388,26 @@
     {
         "name":"Ice Cream Mix",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Bowl", "Milk", "Sugar"]
     },
     {
         "name":"Macaroni And Cheese",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Bowl", "pasta", "Cheese"]
     },
     {
         "name":"Marshmallows",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Water", "Gelatin", "Sugar"]
     },
     {
         "name":"Mashed Potatoes",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Bowl", "Baked Potato", "Butter"]
     },
     {
         "name":"Milk",
@@ -395,25 +419,31 @@
         "name":"Pasta",
         "type":"edible",
         "method":"bake",
-        "recipe":["PastaDough"]
+        "recipe":["Pasta Dough"]
+    },
+    {
+        "name":"Pasta Dough",
+        "type":"edible",
+        "method":"prepare",
+        "recipe":["Dough", "Egg", "Salt"]
     },
     {
         "name":"PBJ Sandwich Apple",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["PB Sandwich", "Apple Jelly"]
     },
     {
         "name":"PBJ Sandwich Strawberry",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["PB Sandwich", "Strawberry Jelly"]
     },
     {
         "name":"PB Sandwich",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Slice of Bread", "Peanut Butter", "Slice of Bread"]
     },
     {
         "name":"Peanut Butter",
@@ -430,8 +460,8 @@
     {
         "name":"Peanut Butter Cookie Dough",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Dough", "Peanut Butter"]
     },
     {
         "name":"Peanuts",
@@ -448,38 +478,38 @@
     {
         "name":"Pumpkin Cookie Dough",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Dough", "Pumpkin"]
     },
     {
         "name":"Raw Apple Pie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Dough", "Apple Mush", "Cinnamon And Sugar"]
     },
     {
         "name":"Raw Chicken Nuggets",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ground Chicken", "Bread Crumbs"]
     },
     {
         "name":"Raw French Toast",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Bread", "Egg", "Cinnamon And Sugar"]
     },
     {
         "name":"Raw Hamburger Patty",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ground Beef", "Ground Beef"]
     },
     {
         "name":"Raw Strawberry Pie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic Plate", "Dough", "Strawberry Mush", "Cinnamon And Sugar"]
     },
     {
         "name":"Roasted Marshmallows",
@@ -502,14 +532,14 @@
     {
         "name":"Salted Beef",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Raw Beef", "Salt"]
     },
     {
         "name":"Salted Pork",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Raw Pork", "Salt"]
     },
     {
         "name":"Shortcake",
@@ -538,8 +568,8 @@
     {
         "name":"Snicker Doodle Dough",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Dough", "Cinnamon And Sugar"]
     },
     {
         "name":"Strawberry",
@@ -550,8 +580,8 @@
     {
         "name":"Strawberry Gelatin",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ceramic plate", "Water", "Gelatin", "Strawberry Mush"]
     },
     {
         "name":"Strawberry Ice Cream",
@@ -560,10 +590,16 @@
         "recipe":[]
     },
     {
+        "name":"Strawberry Ice Cream Chocolate Sauce",
+        "type":"edible",
+        "method":"prepare",
+        "recipe":["Strawberry Ice Cream", "Chocolate Sauce"]
+    },
+    {
         "name":"Strawberry Ice Cream Mix",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ice Cream Mix", "Strawberry"]
     },
     {
         "name":"Strawberry Jelly",
@@ -580,14 +616,14 @@
     {
         "name":"Strawberry Jelly Cookie Dough",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Dough", "Strawberry Jelly"]
     },
     {
         "name":"Strawberry Jelly Toast",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Buttered Toast", "Strawberry Jelly"]
     },
     {
         "name":"Strawberry Mush",
@@ -604,8 +640,8 @@
     {
         "name":"Strawberry ShortCake",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Shortcake", "Strawberry Jelly", "Strawberry", "Whipped Cream"]
     },
     {
         "name":"Sugar Cookie",
@@ -616,8 +652,8 @@
     {
         "name":"Sugar Cookie Dough",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Dough", "Sugar"]
     },
     {
         "name":"Toast",
@@ -658,14 +694,14 @@
     {
         "name":"Vanilla Ice Cream Chocolate Sauce",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Vanilla Ice Cream", "Chocolate Sauce"]
     },
     {
         "name":"Vanilla Ice Cream Mix",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"prepare",
+        "recipe":["Ice Cream Mix", "Vanilla"]
     },
     {
         "name":"Vinegar",

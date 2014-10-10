@@ -9,7 +9,7 @@ public class Food
 
     public static enum Methods
     {
-        process, bake, prepair, brew, fry, freeze
+        process, bake, prepare, brew, fry, freeze
     }
 
     private String name;
