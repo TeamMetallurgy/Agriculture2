@@ -9,13 +9,22 @@ public class MethodFactory
 {
     public static IMethod getMethod(Food.Methods methods)
     {
-        switch(methods)
+        switch (methods)
         {
             case bake:
                 return new MethodBake();
+            case brew:
+                return new MethodBrew();
+            case freeze:
+                return new MethodFreeze();
+            case fry:
+                return new MethodFry();
+            case prepair:
+                return new MethodPrepair();
             case process:
                 return new MethodProcess();
+            default:
+                return null;
         }
-        return null;
     }
 }
