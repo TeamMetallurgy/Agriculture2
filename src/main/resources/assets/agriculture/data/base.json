@@ -40,14 +40,14 @@
     {
         "name":"Apple Pie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Raw Apple Pie"]
     },
     {
         "name":"Bacon",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Salted Pork"]
     },
     {
         "name":"Bacon Cheeseburger",
@@ -70,8 +70,8 @@
     {
         "name":"Beef Jerky",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Salted Beef"]
     },
     {
         "name":"Beer",
@@ -106,8 +106,8 @@
     {
         "name":"Butter Cookie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Butter Cookie Dough"]
     },
     {
         "name":"Butter Cookie Dough",
@@ -208,8 +208,8 @@
     {
         "name":"Chocolate Chip Cookie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Chocolate Chip Cookie Dough"]
     },
     {
         "name":"Chocolate Chip Cookie Dough",
@@ -232,8 +232,8 @@
     {
         "name":"Chocolate Sauce",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Chocolate"]
     },
     {
         "name":"Chocolate Ice Cream Mix",
@@ -298,8 +298,8 @@
     {
         "name":"French Toast",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Raw French Toast"]
     },
     {
         "name":"Fried Chicken",
@@ -352,8 +352,8 @@
     {
         "name":"Hamburger Patty",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Raw Hambuger Patty"]
     },
     {
         "name":"Hot Cocoa",
@@ -394,8 +394,8 @@
     {
         "name":"Pasta",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["PastaDough"]
     },
     {
         "name":"PBJ Sandwich Apple",
@@ -424,8 +424,8 @@
     {
         "name":"Peanut Butter Cookie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Peanut Butter Cookie Dough"]
     },
     {
         "name":"Peanut Butter Cookie Dough",
@@ -442,8 +442,8 @@
     {
         "name":"Pumpkin Cookie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Pumpkin Cookie Dough"]
     },
     {
         "name":"Pumpkin Cookie Dough",
@@ -484,14 +484,14 @@
     {
         "name":"Roasted Marshmallows",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Marshmallows"]
     },
     {
         "name":"Roasted Peanuts",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Peanuts"]
     },
     {
         "name":"Salt",
@@ -532,8 +532,8 @@
     {
         "name":"Snicker Doodle",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Snicker Doodle Dough"]
     },
     {
         "name":"Snicker Doodle Dough",
@@ -574,8 +574,8 @@
     {
         "name":"Strawberry Jelly Cookie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Strawberry Jelly Cookie Dough"]
     },
     {
         "name":"Strawberry Jelly Cookie Dough",
@@ -598,8 +598,8 @@
     {
         "name":"Strawberry Pie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Raw Strawberry Pie"]
     },
     {
         "name":"Strawberry ShortCake",
@@ -610,8 +610,8 @@
     {
         "name":"Sugar Cookie",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Sugar Cookie Dough"]
     },
     {
         "name":"Sugar Cookie Dough",
@@ -622,26 +622,26 @@
     {
         "name":"Toast",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["Slice Of Bread"]
     },
     {
         "name":"Toasted PBJ Sandwich Apple",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["PBJ Sandwich Apple"]
     },
     {
         "name":"Toasted PBJ Sandwich Strawberry",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["PBJ Sandwich Strawberry"]
     },
     {
         "name":"Toasted PB Sandwich",
         "type":"edible",
-        "method":"",
-        "recipe":[]
+        "method":"bake",
+        "recipe":["PB Sandwich"]
     },
     {
         "name":"Vanilla",
