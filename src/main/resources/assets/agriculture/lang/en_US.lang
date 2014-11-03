@@ -1,4 +1,23 @@
 itemGroup.Agriculture.Food=Agriculture: Foods
+itemGroup.Agriculture.blocks=Agriculture: Blocks
+
+tile.agriculture.brewer.name=Brewer
+container.brewer=Brewer
+
+tile.agriculture.counter.name=Counter
+container.counter=Counter
+
+tile.agriculture.frier.name=Frier
+container.frier=Frier
+
+tile.agriculture.icebox.name=Icebox
+container.icebox=Icebox
+
+tile.agriculture.oven.name=Oven
+container.oven=Oven
+
+tile.agriculture.processor.name=Processor
+container.processor=Processor
 
 item.agriculture.flour.name=Flour
 item.agriculture.dough.name=Dough
