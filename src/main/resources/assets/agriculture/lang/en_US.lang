@@ -19,6 +19,8 @@ container.oven=Oven
 tile.agriculture.processor.name=Processor
 container.processor=Processor
 
+tile.agriculture.salt.name=Salt
+
 item.agriculture.flour.name=Flour
 item.agriculture.dough.name=Dough
 item.agriculture.loaf.of.bread.name=Loaf of Bread
