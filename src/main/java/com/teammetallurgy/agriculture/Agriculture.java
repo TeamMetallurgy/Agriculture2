@@ -29,6 +29,7 @@ public class Agriculture
     public static CommonProxy proxy;
 
     public CreativeTabs creativeTabFood = new CreativeTab(Agriculture.MODID + ".Food");
+    public CreativeTabs creativeTabBlock = new CreativeTab(Agriculture.MODID + ".blocks");
 
     @EventHandler
     public void init(FMLInitializationEvent event)
