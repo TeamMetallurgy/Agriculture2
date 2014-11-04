@@ -1,5 +1,7 @@
 package com.teammetallurgy.agriculture;
 
+import net.minecraft.block.Block;
+
 import com.teammetallurgy.agriculture.block.BlockSalt;
 import com.teammetallurgy.agriculture.machine.brewer.BlockBrewer;
 import com.teammetallurgy.agriculture.machine.brewer.TileEntityBrewer;
@@ -10,8 +12,6 @@ import com.teammetallurgy.agriculture.machine.oven.TileEntityOven;
 import com.teammetallurgy.agriculture.machine.processor.TileEntityProcessor;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
 
 public class BlockList
 {
