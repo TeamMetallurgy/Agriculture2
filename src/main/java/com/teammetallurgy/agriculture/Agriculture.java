@@ -1,6 +1,7 @@
 package com.teammetallurgy.agriculture;
 
 import net.minecraft.creativetab.CreativeTabs;
+import akka.actor.dsl.Creators;
 
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.metallurgycore.CreativeTab;
@@ -28,8 +29,8 @@ public class Agriculture
     @SidedProxy(clientSide = "com.teammetallurgy.agriculture.networking.ClientProxy", serverSide = "com.teammetallurgy.agriculture.networking.CommonProxy")
     public static CommonProxy proxy;
 
-    public CreativeTabs creativeTabFood = new CreativeTab(Agriculture.MODID + ".Food");
-    public CreativeTabs creativeTabBlock = new CreativeTab(Agriculture.MODID + ".blocks");
+    public CreativeTab creativeTabFood = new CreativeTab(Agriculture.MODID + ".Food");
+    public CreativeTab creativeTabBlock = new CreativeTab(Agriculture.MODID + ".blocks");
 
     @EventHandler
     public void init(FMLInitializationEvent event)
@@ -55,5 +56,13 @@ public class Agriculture
         ItemList.preInit();
 
         BlockList.preInit();
+
+        setCreativeTabsIcons();
+    }
+
+    private void setCreativeTabsIcons()
+    {
+        creativeTabFood.setItemStack(ItemList.getItemStack("base", "CaramelAppleWithNuts"));
+        creativeTabBlock.setItem(BlockList.counter);
     }
 }
