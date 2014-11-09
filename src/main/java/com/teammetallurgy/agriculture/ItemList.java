@@ -41,10 +41,7 @@ public class ItemList
 
     private static void calculateValuesFor(ItemStack itemStack)
     {
-        if (itemStack == null)
-        {
-            return;
-        }
+        if (itemStack == null) { return; }
 
         Item item = itemStack.getItem();
         if ((item != null) && (item instanceof FoodItem))
@@ -118,5 +115,13 @@ public class ItemList
             }
         }
         return itemStacks;
+    }
+
+    public static ItemStack getItemStack(String setName, String foodName)
+    {
+        FoodSet foodSet = setList.get(setName);
+        if (foodSet == null) return null;
+
+        return foodSet.getItemStack(foodName);
     }
 }
