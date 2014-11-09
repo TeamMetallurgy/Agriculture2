@@ -37,6 +37,7 @@ public class Agriculture
         NetworkRegistry.INSTANCE.registerGuiHandler(Agriculture.instance, Agriculture.proxy);
         ItemList.initRecipes();
         ItemList.recalculateValues();
+        proxy.initRenderers();
     }
 
     @EventHandler

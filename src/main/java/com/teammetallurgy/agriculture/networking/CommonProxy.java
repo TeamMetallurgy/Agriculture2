@@ -20,4 +20,9 @@ public class CommonProxy implements IGuiHandler
         return null;
     }
 
+    public void initRenderers()
+    {
+        // only client
+    }
+
 }

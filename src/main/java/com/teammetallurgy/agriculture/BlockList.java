@@ -5,10 +5,15 @@ import net.minecraft.block.Block;
 import com.teammetallurgy.agriculture.block.BlockSalt;
 import com.teammetallurgy.agriculture.machine.brewer.BlockBrewer;
 import com.teammetallurgy.agriculture.machine.brewer.TileEntityBrewer;
+import com.teammetallurgy.agriculture.machine.counter.BlockCounter;
 import com.teammetallurgy.agriculture.machine.counter.TileEntityCounter;
+import com.teammetallurgy.agriculture.machine.frier.BlockFrier;
 import com.teammetallurgy.agriculture.machine.frier.TileEntityFrier;
+import com.teammetallurgy.agriculture.machine.icebox.BlockIcebox;
 import com.teammetallurgy.agriculture.machine.icebox.TileEntityIcebox;
+import com.teammetallurgy.agriculture.machine.oven.BlockOven;
 import com.teammetallurgy.agriculture.machine.oven.TileEntityOven;
+import com.teammetallurgy.agriculture.machine.processor.BlockProcessor;
 import com.teammetallurgy.agriculture.machine.processor.TileEntityProcessor;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -34,27 +39,27 @@ public class BlockList
         GameRegistry.registerTileEntity(TileEntityBrewer.class, blockName);
 
         blockName = "counter";
-        counter = new BlockBrewer().setBlockName(modID + "." + blockName);
+        counter = new BlockCounter().setBlockName(modID + "." + blockName);
         GameRegistry.registerBlock(counter, blockName);
         GameRegistry.registerTileEntity(TileEntityCounter.class, blockName);
 
         blockName = "frier";
-        frier = new BlockBrewer().setBlockName(modID + "." + blockName);
+        frier = new BlockFrier().setBlockName(modID + "." + blockName);
         GameRegistry.registerBlock(frier, blockName);
         GameRegistry.registerTileEntity(TileEntityFrier.class, blockName);
 
         blockName = "icebox";
-        icebox = new BlockBrewer().setBlockName(modID + "." + blockName);
+        icebox = new BlockIcebox().setBlockName(modID + "." + blockName);
         GameRegistry.registerBlock(icebox, blockName);
         GameRegistry.registerTileEntity(TileEntityIcebox.class, blockName);
 
         blockName = "oven";
-        oven = new BlockBrewer().setBlockName(modID + "." + blockName);
+        oven = new BlockOven().setBlockName(modID + "." + blockName);
         GameRegistry.registerBlock(oven, blockName);
         GameRegistry.registerTileEntity(TileEntityOven.class, blockName);
 
         blockName = "processor";
-        processor = new BlockBrewer().setBlockName(modID + "." + blockName);
+        processor = new BlockProcessor().setBlockName(modID + "." + blockName);
         GameRegistry.registerBlock(processor, blockName);
         GameRegistry.registerTileEntity(TileEntityProcessor.class, blockName);
 

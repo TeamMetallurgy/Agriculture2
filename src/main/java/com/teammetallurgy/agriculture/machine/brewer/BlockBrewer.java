@@ -11,6 +11,11 @@ import com.teammetallurgy.metallurgycore.machines.BlockMetallurgyCore;
 public class BlockBrewer extends BlockMetallurgyCore
 {
 
+    public BlockBrewer()
+    {
+        this.setBlockTextureName("minecraft:brick");
+    }
+
     @Override
     public TileEntity createNewTileEntity(World world, int meta)
     {
@@ -28,6 +33,24 @@ public class BlockBrewer extends BlockMetallurgyCore
     public CreativeTabs getCreativeTabToDisplayOn()
     {
         return Agriculture.instance.creativeTabBlock;
+    }
+
+    @Override
+    public boolean renderAsNormalBlock()
+    {
+        return false;
+    }
+
+    @Override
+    public int getRenderType()
+    {
+        return -1;
+    }
+
+    @Override
+    public boolean isOpaqueCube()
+    {
+        return false;
     }
 
 }
