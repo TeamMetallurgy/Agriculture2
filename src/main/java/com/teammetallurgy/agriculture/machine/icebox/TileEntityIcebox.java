@@ -2,9 +2,9 @@ package com.teammetallurgy.agriculture.machine.icebox;
 
 import net.minecraft.item.ItemStack;
 
-import com.teammetallurgy.metallurgycore.machines.TileEntityMetallurgySided;
+import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
-public class TileEntityIcebox extends TileEntityMetallurgySided
+public class TileEntityIcebox extends TileEntityBaseMachine
 {
     private static final int[] INPUT_SLOT = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13};
     private static final int [] OUTPUT_SLOT = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12};

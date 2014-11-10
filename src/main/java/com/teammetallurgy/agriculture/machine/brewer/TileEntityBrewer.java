@@ -2,9 +2,9 @@ package com.teammetallurgy.agriculture.machine.brewer;
 
 import net.minecraft.item.ItemStack;
 
-import com.teammetallurgy.metallurgycore.machines.TileEntityMetallurgySided;
+import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
-public class TileEntityBrewer extends TileEntityMetallurgySided
+public class TileEntityBrewer extends TileEntityBaseMachine
 {
 
     private static final int INPUT_SLOT = 0;

@@ -2,9 +2,9 @@ package com.teammetallurgy.agriculture.machine.processor;
 
 import net.minecraft.item.ItemStack;
 
-import com.teammetallurgy.metallurgycore.machines.TileEntityMetallurgySided;
+import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
-public class TileEntityProcessor extends TileEntityMetallurgySided
+public class TileEntityProcessor extends TileEntityBaseMachine
 {
     private static final int[] INPUT_SLOT = new int[] {0,1};
     private static final int FUEL_SLOT = 2;
