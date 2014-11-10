@@ -1,8 +1,5 @@
 package com.teammetallurgy.agriculture;
 
-import net.minecraft.creativetab.CreativeTabs;
-import akka.actor.dsl.Creators;
-
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.metallurgycore.CreativeTab;
 import com.teammetallurgy.metallurgycore.handlers.ConfigHandler;
