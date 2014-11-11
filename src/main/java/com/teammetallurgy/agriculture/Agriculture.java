@@ -1,5 +1,6 @@
 package com.teammetallurgy.agriculture;
 
+import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.metallurgycore.CreativeTab;
 import com.teammetallurgy.metallurgycore.handlers.ConfigHandler;
@@ -32,7 +33,7 @@ public class Agriculture
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        NetworkRegistry.INSTANCE.registerGuiHandler(Agriculture.instance, Agriculture.proxy);
+        NetworkRegistry.INSTANCE.registerGuiHandler(Agriculture.instance, new GuiHandler());
         ItemList.initRecipes();
         ItemList.recalculateValues();
         proxy.initRenderers();
