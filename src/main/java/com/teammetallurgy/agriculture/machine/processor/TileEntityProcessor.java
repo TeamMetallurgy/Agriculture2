@@ -6,8 +6,8 @@ import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
 public class TileEntityProcessor extends TileEntityBaseMachine
 {
-    private static final int[] INPUT_SLOT = new int[] {0,1};
-    private static final int FUEL_SLOT = 2;
+    private static final int[] INPUT_SLOT = new int[] {1,2};
+    private static final int FUEL_SLOT = 0;
     private static final int[] OUTPUT_SLOT = new int[] {3}; 
 
     public TileEntityProcessor()

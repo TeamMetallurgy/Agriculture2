@@ -15,6 +15,24 @@ public class ContainerCabinet extends Container
 
         int i;
 
+        // Left storage
+        for (i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                this.addSlotToContainer(new Slot(this.machine, j + i * 3 + 20, 8 + j * 18, 14 + i * 18));
+            }
+        }
+
+        // Right storage
+        for (i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                this.addSlotToContainer(new Slot(this.machine, j + i * 3 + 32, 98 + j * 18, 14 + i * 18));
+            }
+        }
+
         // Player inventory
 
         for (i = 0; i < 3; ++i)

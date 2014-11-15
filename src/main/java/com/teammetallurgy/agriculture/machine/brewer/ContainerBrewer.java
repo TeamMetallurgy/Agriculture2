@@ -15,6 +15,15 @@ public class ContainerBrewer extends Container
 
         int i;
 
+        // Fuel
+        this.addSlotToContainer(new Slot(this.machine, 0, 80, 58));
+
+        // Fluid input
+        this.addSlotToContainer(new Slot(this.machine, 1, 26, 36));
+
+        // Input/Output
+        this.addSlotToContainer(new Slot(this.machine, 2, 80, 13));
+
         // Player inventory
 
         for (i = 0; i < 3; ++i)

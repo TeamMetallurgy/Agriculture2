@@ -14,6 +14,11 @@ public class ContainerProcessor extends Container
     {
         this.machine = processor;
 
+        // Processor inventory
+        this.addSlotToContainer(new Slot(this.machine, 1, 40, 32));
+        this.addSlotToContainer(new Slot(this.machine, 2, 76, 32));
+        this.addSlotToContainer(new Slot(this.machine, 3, 122, 32));
+
         int i;
 
         // Player inventory

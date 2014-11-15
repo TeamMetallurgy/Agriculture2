@@ -6,11 +6,12 @@ import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
 public class TileEntityIcebox extends TileEntityBaseMachine
 {
-    private static final int[] INPUT_SLOT = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13};
-    private static final int [] OUTPUT_SLOT = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12};
+    private static final int[] INPUT_SLOT = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+    private static final int[] OUTPUT_SLOT = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+
     public TileEntityIcebox()
     {
-        super(14, INPUT_SLOT, new int []{}, OUTPUT_SLOT);
+        super(14, INPUT_SLOT, new int[] {}, OUTPUT_SLOT);
     }
 
     @Override

@@ -17,6 +17,21 @@ public class ContainerCounter extends Container
 
         int i;
 
+        // input slots
+        for (i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                this.addSlotToContainer(new Slot(this.machine, j + i * 4, 36 + j * 18, 6 + i * 19));
+            }
+        }
+
+        // output slots
+        for (i = 0; i < 4; i++)
+        {
+            this.addSlotToContainer(new Slot(this.machine, i + 16, 124, 6 + i * 19));
+        }
+
         // Player inventory
 
         for (i = 0; i < 3; ++i)

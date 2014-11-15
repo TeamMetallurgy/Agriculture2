@@ -7,13 +7,13 @@ import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 public class TileEntityBrewer extends TileEntityBaseMachine
 {
 
-    private static final int INPUT_SLOT = 0;
-    private static final int FUEL_SLOT = 1;
+    private static final int[] INPUT_SLOT = { 1, 2 };
+    private static final int FUEL_SLOT = 0;
     private static final int OUTPUT_SLOT = 2;
 
     public TileEntityBrewer()
     {
-        super(3, new int[] { INPUT_SLOT }, new int[] { FUEL_SLOT }, new int[] { OUTPUT_SLOT });
+        super(3, INPUT_SLOT, new int[] { FUEL_SLOT }, new int[] { OUTPUT_SLOT });
     }
 
     @Override
@@ -38,7 +38,7 @@ public class TileEntityBrewer extends TileEntityBaseMachine
     @Override
     protected int[] getInputSlots()
     {
-        return new int[] { TileEntityBrewer.INPUT_SLOT };
+        return TileEntityBrewer.INPUT_SLOT;
     }
 
     @Override

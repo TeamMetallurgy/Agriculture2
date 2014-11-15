@@ -15,6 +15,19 @@ public class ContainerIcebox extends Container
         this.machine = icebox;
 
         int i;
+        
+        // Ice slot
+        this.addSlotToContainer(new Slot(this.machine,0, 32,33));
+        
+        // input/output slots
+        
+        for (i=0; i<3 ; i++)
+        {
+            for (int j =0 ; j < 4; j++)
+            {
+                this.addSlotToContainer(new Slot(this.machine, j + i * 4 + 1, 74 + j * 18, 15 + i * 18));
+            }
+        }
 
         // Player inventory
 

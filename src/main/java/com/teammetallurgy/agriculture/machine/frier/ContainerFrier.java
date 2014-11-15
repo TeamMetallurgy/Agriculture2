@@ -15,6 +15,19 @@ public class ContainerFrier extends Container
 
         int i;
 
+        // Fluid slot
+        this.addSlotToContainer(new Slot(this.machine, 1, 40, 35));
+
+        // input/output slots
+
+        for (i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                this.addSlotToContainer(new Slot(this.machine, j + i * 3 + 2, 89 + j * 18, 17 + i * 18));
+            }
+        }
+
         // Player inventory
 
         for (i = 0; i < 3; ++i)

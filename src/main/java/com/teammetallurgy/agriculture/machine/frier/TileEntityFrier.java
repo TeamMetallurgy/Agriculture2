@@ -6,9 +6,9 @@ import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
 public class TileEntityFrier extends TileEntityBaseMachine
 {
-    private static final int[] INPUT_SLOTS = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    private static final int FUEL_SLOT = 10;
-    private static final int[] OUTPUT_SLOTS = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+    private static final int[] INPUT_SLOTS = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    private static final int FUEL_SLOT = 0;
+    private static final int[] OUTPUT_SLOTS = new int[] { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
     public TileEntityFrier()
     {
@@ -18,7 +18,6 @@ public class TileEntityFrier extends TileEntityBaseMachine
     @Override
     public int getInventoryStackLimit()
     {
-        // TODO Auto-generated method stub
         return 64;
     }
 

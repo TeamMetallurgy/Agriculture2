@@ -14,6 +14,23 @@ public class ContainerOven extends Container
         this.machine = oven;
 
         int i;
+        // Fuel slot
+        this.addSlotToContainer(new Slot(this.machine, 0, 18, 34));
+
+        // Cooking slots
+        for (i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                this.addSlotToContainer(new Slot(this.machine, j + i * 4 + 1, 64 + j * 19, 6 + i * 19));
+            }
+        }
+        
+        // Tray slots
+        for (i=0; i < 3; i++)
+        {
+            this.addSlotToContainer(new Slot(this.machine, i + 17, 142,25 + i * 19));
+        }
 
         // Player inventory
 
