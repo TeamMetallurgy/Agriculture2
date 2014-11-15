@@ -13,8 +13,8 @@ import java.util.Random;
 
 public class WorldGenSalt extends WorldGenerator implements IWorldGenerator
 {
-    private static int saltPerChunk = 1;
-    private final Block saltBlock;
+    private int saltPerChunk = 1;
+    private Block saltBlock;
 
     public WorldGenSalt()
     {
