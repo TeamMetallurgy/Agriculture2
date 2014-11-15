@@ -13,3 +13,4 @@ Thumbs.db
 *.ipr
 *.iws
 /.metadata
+/out
