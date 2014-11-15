@@ -16,6 +16,9 @@ public class ContainerFuel extends Container
 
         int i;
 
+        // Fuel slot
+        this.addSlotToContainer(new Slot(this.machine, 0, 80, 39));
+
         // Player inventory
 
         for (i = 0; i < 3; ++i)
