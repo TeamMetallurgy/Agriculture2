@@ -2,6 +2,7 @@ package com.teammetallurgy.agriculture;
 
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
+import com.teammetallurgy.agriculture.worldgen.WorldGenSalt;
 import com.teammetallurgy.metallurgycore.CreativeTab;
 import com.teammetallurgy.metallurgycore.handlers.ConfigHandler;
 import com.teammetallurgy.metallurgycore.handlers.LogHandler;
@@ -13,6 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(name = Agriculture.MODNAME, modid = Agriculture.MODID, version = Agriculture.VERSION, useMetadata = true)
 public class Agriculture
@@ -36,6 +38,7 @@ public class Agriculture
         NetworkRegistry.INSTANCE.registerGuiHandler(Agriculture.instance, new GuiHandler());
         ItemList.initRecipes();
         ItemList.recalculateValues();
+        GameRegistry.registerWorldGenerator(new WorldGenSalt(), 0);
         proxy.initRenderers();
     }
 
