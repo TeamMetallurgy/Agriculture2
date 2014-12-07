@@ -3,6 +3,10 @@ package com.teammetallurgy.agriculture;
 import net.minecraft.block.Block;
 
 import com.teammetallurgy.agriculture.block.BlockSalt;
+import com.teammetallurgy.agriculture.block.plant.BlockCinnamon;
+import com.teammetallurgy.agriculture.block.plant.BlockPeanut;
+import com.teammetallurgy.agriculture.block.plant.BlockStrawberry;
+import com.teammetallurgy.agriculture.block.plant.BlockVanilla;
 import com.teammetallurgy.agriculture.machine.brewer.BlockBrewer;
 import com.teammetallurgy.agriculture.machine.brewer.TileEntityBrewer;
 import com.teammetallurgy.agriculture.machine.counter.BlockCounter;
@@ -29,9 +33,16 @@ public class BlockList
     public static Block processor;
     public static Block salt;
 
+    public static Block cinnamon;
+    public static Block peanut;
+    public static Block strawberry;
+    public static Block vanilla;
+
     public static void preInit()
     {
         String modID = Agriculture.MODID.toLowerCase();
+
+        // Machines
 
         String blockName = "brewer";
         brewer = new BlockBrewer().setBlockName(modID + "." + blockName);
@@ -66,6 +77,23 @@ public class BlockList
         blockName = "salt";
         salt = new BlockSalt();
         GameRegistry.registerBlock(salt, blockName);
+
+        // Plants
+        blockName = "cinnamon";
+        cinnamon = new BlockCinnamon();
+        GameRegistry.registerBlock(cinnamon, blockName);
+
+        blockName = "peanut";
+        peanut = new BlockPeanut();
+        GameRegistry.registerBlock(peanut, blockName);
+
+        blockName = "strawberry";
+        strawberry = new BlockStrawberry();
+        GameRegistry.registerBlock(strawberry, blockName);
+
+        blockName = "vanilla";
+        vanilla = new BlockVanilla();
+        GameRegistry.registerBlock(vanilla, blockName);
 
     }
 
