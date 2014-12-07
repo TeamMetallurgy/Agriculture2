@@ -21,6 +21,11 @@ container.processor=Processor
 
 tile.agriculture.salt.name=Salt
 
+tile.agriculture.cinnamon.name=Cinnamon
+tile.agriculture.peanut.name=Peanut
+tile.agriculture.strawberry.name=Strawberry
+tile.agriculture.vanilla.name=Vanilla
+
 item.agriculture.flour.name=Flour
 item.agriculture.dough.name=Dough
 item.agriculture.loaf.of.bread.name=Loaf of Bread
