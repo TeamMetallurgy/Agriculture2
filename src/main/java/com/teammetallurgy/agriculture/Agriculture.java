@@ -1,12 +1,13 @@
 package com.teammetallurgy.agriculture;
 
+import org.apache.logging.log4j.Logger;
+
+import com.teammetallurgy.agriculture.handler.AgricultureConfigHandler;
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.agriculture.worldgen.WorldGenPlants;
 import com.teammetallurgy.agriculture.worldgen.WorldGenSalt;
 import com.teammetallurgy.metallurgycore.CreativeTab;
-import com.teammetallurgy.metallurgycore.handlers.ConfigHandler;
-import com.teammetallurgy.metallurgycore.handlers.LogHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -29,9 +30,23 @@ public class Agriculture
 
     @SidedProxy(clientSide = "com.teammetallurgy.agriculture.networking.ClientProxy", serverSide = "com.teammetallurgy.agriculture.networking.CommonProxy")
     public static CommonProxy proxy;
+    public static Logger logger;
 
     public CreativeTab creativeTabFood = new CreativeTab(Agriculture.MODID + ".Food");
     public CreativeTab creativeTabBlock = new CreativeTab(Agriculture.MODID + ".blocks");
+
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event)
+    {
+        logger = event.getModLog();
+        AgricultureConfigHandler.setFile(event.getSuggestedConfigurationFile());
+
+        ItemList.preInit();
+
+        BlockList.preInit();
+
+        setCreativeTabsIcons();
+    }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
@@ -48,19 +63,6 @@ public class Agriculture
     public void postInit(FMLPostInitializationEvent event)
     {
 
-    }
-
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
-        LogHandler.setLog(event.getModLog());
-        ConfigHandler.setFile(event.getSuggestedConfigurationFile());
-
-        ItemList.preInit();
-
-        BlockList.preInit();
-
-        setCreativeTabsIcons();
     }
 
     private void setCreativeTabsIcons()
