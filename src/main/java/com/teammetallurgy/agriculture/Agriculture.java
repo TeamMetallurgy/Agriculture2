@@ -2,6 +2,7 @@ package com.teammetallurgy.agriculture;
 
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
+import com.teammetallurgy.agriculture.worldgen.WorldGenPlants;
 import com.teammetallurgy.agriculture.worldgen.WorldGenSalt;
 import com.teammetallurgy.metallurgycore.CreativeTab;
 import com.teammetallurgy.metallurgycore.handlers.ConfigHandler;
@@ -39,6 +40,7 @@ public class Agriculture
         ItemList.initRecipes();
         ItemList.recalculateValues();
         GameRegistry.registerWorldGenerator(new WorldGenSalt(), 0);
+        GameRegistry.registerWorldGenerator(new WorldGenPlants(), 0);
         proxy.initRenderers();
     }
 
