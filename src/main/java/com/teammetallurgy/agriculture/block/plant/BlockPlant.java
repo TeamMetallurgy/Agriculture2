@@ -24,6 +24,10 @@ public class BlockPlant extends BlockCrops
     public BlockPlant()
     {
         this.setCreativeTab(Agriculture.instance.creativeTabBlock);
+        float center = 0.35F;
+        this.setBlockBounds(0.5F - center, 0.0F, 0.5F - center, 0.5F + center, 0.27F * 3.0F, 0.5F + center);
+        this.setResistance(1.0F);
+        this.setHardness(1.5F);
     }
 
     @Override
