@@ -24,9 +24,9 @@ public class WorldGenPlants implements IWorldGenerator
     public void generate(Random fmlRandom, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
     {
         Random random = new Random(((fmlRandom.nextLong() ^ plantGenerationSeed) ^ chunkX) ^ chunkZ);
-        
-        if (random.nextInt(100) > 75) return;
-        
+
+        if (random.nextInt(100) < 75) return;
+
         int xPos = (chunkX * 16) + random.nextInt(16);
         int zPos = (chunkZ * 16) + random.nextInt(16);
         int yPos = world.getHeightValue(xPos, zPos) + 32;
@@ -45,13 +45,13 @@ public class WorldGenPlants implements IWorldGenerator
 
         Block blockPlant = plants[random.nextInt(plants.length)];
 
-        int radius = random.nextInt(6) + 1;
+        int radius = random.nextInt((6 - 4) + 1) + 4;
 
         for (int i = 0; i < radius; i++)
         {
             for (int j = 0; j < radius; j++)
             {
-                if (world.isAirBlock(xPos + i, yPos, zPos + j) && blockPlant.canBlockStay(world, xPos + i, yPos, zPos + j) && random.nextInt(100) > 75)
+                if (world.isAirBlock(xPos + i, yPos, zPos + j) && blockPlant.canBlockStay(world, xPos + i, yPos, zPos + j) && random.nextInt(100) > 85)
                 {
                     world.setBlock(xPos + i, yPos, zPos + j, blockPlant, 0, 2);
                 }
