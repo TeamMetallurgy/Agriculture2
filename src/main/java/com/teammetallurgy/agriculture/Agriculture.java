@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import com.teammetallurgy.agriculture.handler.AgricultureConfigHandler;
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
+import com.teammetallurgy.agriculture.recpies.Recipes;
 import com.teammetallurgy.agriculture.worldgen.WorldGenPlants;
 import com.teammetallurgy.agriculture.worldgen.WorldGenSalt;
 import com.teammetallurgy.metallurgycore.CreativeTab;
@@ -62,7 +63,7 @@ public class Agriculture
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-
+        Recipes.createRecipes();
     }
 
     private void setCreativeTabsIcons()

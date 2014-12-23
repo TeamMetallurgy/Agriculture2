@@ -12,6 +12,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.gson.Gson;
 import com.teammetallurgy.agriculture.Agriculture;
+import com.teammetallurgy.agriculture.recpies.Recipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -22,7 +23,6 @@ public class FoodSet
     private Food[] foods;
 
     private final HashMap<String, ItemStack> itemStacks = new HashMap<String, ItemStack>();
-    private int meta;
 
     private FoodItem defaultItem;
     private final HashMap<String, String[]> recipes = new HashMap<String, String[]>();
@@ -67,10 +67,11 @@ public class FoodSet
 
         this.foods = new Gson().fromJson(reader, Food[].class);
 
-        this.meta = 0;
-        for (Food food : this.foods)
+        int meta;
+        for (meta = 0; meta < this.foods.length; meta++)
         {
 
+            Food food = foods[meta];
             String texture = food.getName().replace(" ", "_");
             texture = Agriculture.MODID + ":" + this.name + "/" + texture.toLowerCase();
 
@@ -80,17 +81,41 @@ public class FoodSet
             String identifier = "crop";
             if (food.type == Food.FoodType.base)
             {
-                item = this.createItem(this.defaultItem, this.meta++, tag, identifier);
-                item.addSubItem(this.meta, food.getName(), 0, texture, food.method);
-                this.itemStacks.put(tag, new ItemStack(item, 1, this.meta));
+                item = this.createItem(this.defaultItem, meta, tag, identifier);
+                item.addSubItem(meta, food.getName(), 0, texture, food.method);
+                ItemStack stack = new ItemStack(item, 1, meta);
+
+                OreDictionary.registerOre(identifier + tag, stack);
+
+                this.itemStacks.put(tag, stack);
             }
 
             identifier = "food";
             if (food.type == Food.FoodType.edible)
             {
-                item = this.createItem(this.defaultItem, this.meta++, tag, identifier);
-                item.addSubItem(this.meta, food.getName(), 1, texture, food.method);
-                this.itemStacks.put(tag, new ItemStack(item, 1, this.meta));
+                item = this.createItem(this.defaultItem, meta, tag, identifier);
+                item.addSubItem(meta, food.getName(), 1, texture, food.method);
+                ItemStack stack = new ItemStack(item, 1, meta);
+                Agriculture.logger.info("Registering:" + identifier + tag + " for " + stack.getUnlocalizedName());
+                OreDictionary.registerOre(identifier + tag, stack);
+                this.itemStacks.put(tag, new ItemStack(item, 1, meta));
+            }
+
+            if (food.method == Food.Methods.process && food.recipe != null)
+            {
+                if (food.recipe.length == 1)
+                {
+                    String oreDicInput = "food" + food.recipe[0].replace(" ", "");
+                    Recipes.addProcessorRecipeOreDic(oreDicInput, "", "food" + tag);
+                }
+                if (food.recipe.length == 2)
+                {
+                    String OreDicInput1 = "food" + food.recipe[0].replace(" ", "");
+                    String OreDicInput2 = "food" + food.recipe[1].replace(" ", "");
+
+                    Recipes.addProcessorRecipeOreDic(OreDicInput1, OreDicInput2, "food" + tag);
+                }
+
             }
 
             if (food.recipe != null)
@@ -102,12 +127,10 @@ public class FoodSet
 
     private FoodItem createItem(FoodItem foodItem, int meta, String tag, String identifier)
     {
-        if(meta == 0)
+        if (meta == 0)
         {
             GameRegistry.registerItem(foodItem, this.name + "." + identifier);
         }
-
-        OreDictionary.registerOre(identifier + tag, new ItemStack(foodItem, 1, meta));
 
         return foodItem;
     }
@@ -116,4 +139,5 @@ public class FoodSet
     {
         return this.itemStacks.get(food);
     }
+
 }

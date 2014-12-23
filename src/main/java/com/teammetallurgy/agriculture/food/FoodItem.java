@@ -27,13 +27,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class FoodItem extends ItemFood
 {
-    private final HashMap<Integer, String> names = new HashMap<Integer, String>();
-    private final HashMap<Integer, Integer> itemTypes = new HashMap<Integer, Integer>();
-    private final HashMap<Integer, String> textures = new HashMap<Integer, String>();
-    private final HashMap<Integer, IIcon> icons = new HashMap<Integer, IIcon>();
-    private final HashMap<Integer, ArrayList<ItemStack>> recipes = new HashMap<Integer, ArrayList<ItemStack>>();
-    private final HashMap<Integer, Integer> healAmounts = new HashMap<Integer, Integer>();
-    private final HashMap<Integer, Food.Methods> methods = new HashMap<Integer, Food.Methods>();
+    private HashMap<Integer, String> names = new HashMap<Integer, String>();
+    private HashMap<Integer, Integer> itemTypes = new HashMap<Integer, Integer>();
+    private HashMap<Integer, String> textures = new HashMap<Integer, String>();
+    private HashMap<Integer, IIcon> icons = new HashMap<Integer, IIcon>();
+    private HashMap<Integer, ArrayList<ItemStack>> recipes = new HashMap<Integer, ArrayList<ItemStack>>();
+    private HashMap<Integer, Integer> healAmounts = new HashMap<Integer, Integer>();
+    private HashMap<Integer, Food.Methods> methods = new HashMap<Integer, Food.Methods>();
 
     public FoodItem(String postfix, int health)
     {
@@ -165,7 +165,7 @@ public class FoodItem extends ItemFood
 
             IMethod method = MethodFactory.getMethod(this.methods.get(itemDamage));
 
-            if(method != null)
+            if (method != null)
             {
                 healAmount += method.getHungerBonus();
             }
