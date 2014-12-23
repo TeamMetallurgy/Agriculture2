@@ -63,7 +63,6 @@ public class Recipes
             else inputUnlocalizedName += ", " + ingredent.getUnlocalizedName();
         }
 
-        Agriculture.logger.info("no recipe was found for " + inputUnlocalizedName);
         return null;
     }
 

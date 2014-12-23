@@ -96,8 +96,9 @@ public class FoodSet
                 item = this.createItem(this.defaultItem, meta, tag, identifier);
                 item.addSubItem(meta, food.getName(), 1, texture, food.method);
                 ItemStack stack = new ItemStack(item, 1, meta);
-                Agriculture.logger.info("Registering:" + identifier + tag + " for " + stack.getUnlocalizedName());
+
                 OreDictionary.registerOre(identifier + tag, stack);
+
                 this.itemStacks.put(tag, new ItemStack(item, 1, meta));
             }
 
