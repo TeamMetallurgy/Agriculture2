@@ -18,6 +18,7 @@ container.oven=Oven
 
 tile.agriculture.processor.name=Processor
 container.processor=Processor
+nei.recipe.agriculture.processor=Processor recipes
 
 tile.agriculture.salt.name=Salt
 

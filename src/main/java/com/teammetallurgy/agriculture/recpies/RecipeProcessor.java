@@ -56,6 +56,21 @@ public class RecipeProcessor extends RecipeBase implements IAgricultureRecipe
     {
         return outputStack.copy();
     }
+    
+    public ItemStack getInput(int slot)
+    {
+        switch (slot){
+            case 0:
+                return ingredientStack1.copy();
+            case 1:
+                if (ingredientStack2 != null)
+                    return ingredientStack2.copy();
+                else
+                    return null;
+           default:
+               return null;
+        }
+    }
 
     @Override
     public boolean equals(Object obj)

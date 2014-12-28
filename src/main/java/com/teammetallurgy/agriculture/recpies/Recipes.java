@@ -2,8 +2,6 @@ package com.teammetallurgy.agriculture.recpies;
 
 import java.util.ArrayList;
 
-import com.teammetallurgy.agriculture.Agriculture;
-
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
