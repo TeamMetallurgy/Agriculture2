@@ -1,8 +1,7 @@
 package com.teammetallurgy.agriculture;
 
-import org.apache.logging.log4j.Logger;
-
 import com.teammetallurgy.agriculture.handler.AgricultureConfigHandler;
+import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.agriculture.recpies.Recipes;
@@ -31,7 +30,7 @@ public class Agriculture
 
     @SidedProxy(clientSide = "com.teammetallurgy.agriculture.networking.ClientProxy", serverSide = "com.teammetallurgy.agriculture.networking.CommonProxy")
     public static CommonProxy proxy;
-    public static Logger logger;
+    
 
     public CreativeTab creativeTabFood = new CreativeTab(Agriculture.MODID + ".Food");
     public CreativeTab creativeTabBlock = new CreativeTab(Agriculture.MODID + ".blocks");
@@ -39,7 +38,7 @@ public class Agriculture
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        logger = event.getModLog();
+        AgricultureLogHandler.setLogger(event.getModLog());
         AgricultureConfigHandler.setFile(event.getSuggestedConfigurationFile());
 
         ItemList.preInit();

@@ -3,6 +3,7 @@ package com.teammetallurgy.agriculture.recpies;
 import java.util.ArrayList;
 
 import com.teammetallurgy.agriculture.Agriculture;
+import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -45,7 +46,7 @@ public class Recipes
                 }
                 recipe +=  " --> " + tempProcessorRecipe[2];
                 
-                Agriculture.logger.error("processing recipes: ingredients or output not found for recipe: " + recipe);
+                AgricultureLogHandler.warn("processing recipes: ingredients or output not found for recipe: " + recipe);
                 
                 continue;
             }
