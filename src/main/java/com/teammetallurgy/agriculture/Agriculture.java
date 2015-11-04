@@ -5,9 +5,9 @@ import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.agriculture.recpies.Recipes;
+import com.teammetallurgy.agriculture.utils.AgricultureCreativeTab;
 import com.teammetallurgy.agriculture.worldgen.WorldGenPlants;
 import com.teammetallurgy.agriculture.worldgen.WorldGenSalt;
-import com.teammetallurgy.metallurgycore.CreativeTab;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -32,8 +32,8 @@ public class Agriculture
     public static CommonProxy proxy;
     
 
-    public CreativeTab creativeTabFood = new CreativeTab(Agriculture.MODID + ".Food");
-    public CreativeTab creativeTabBlock = new CreativeTab(Agriculture.MODID + ".blocks");
+    public AgricultureCreativeTab creativeTabFood = new AgricultureCreativeTab(Agriculture.MODID + ".Food");
+    public AgricultureCreativeTab creativeTabBlock = new AgricultureCreativeTab(Agriculture.MODID + ".blocks");
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -67,6 +67,7 @@ public class Agriculture
 
     private void setCreativeTabsIcons()
     {
+        
         creativeTabFood.setItemStack(ItemList.getItemStack("base", "CaramelAppleWithNuts"));
         creativeTabBlock.setItem(BlockList.counter);
     }
