@@ -1,6 +1,7 @@
 package com.teammetallurgy.agriculture.machine.frier;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 
 import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
@@ -12,7 +13,7 @@ public class TileEntityFrier extends TileEntityBaseMachine
 
     public TileEntityFrier()
     {
-        super(11, INPUT_SLOTS, new int[] { FUEL_SLOT }, OUTPUT_SLOTS);
+        super(11);
     }
 
     @Override
@@ -28,27 +29,36 @@ public class TileEntityFrier extends TileEntityBaseMachine
     }
 
     @Override
-    protected ItemStack getSmeltingResult(ItemStack... itemStack)
+    public boolean isItemValidForSlot(int slotId, ItemStack itemStack)
     {
-        return null;
+        if (slotId == FUEL_SLOT) { return TileEntityFurnace.isItemFuel(itemStack); }
+
+        return true;
     }
 
     @Override
-    protected int[] getInputSlots()
+    public int[] getAccessibleSlotsFromSide(int side)
     {
-        return INPUT_SLOTS;
+        switch (side)
+        {
+            case 0:
+                return OUTPUT_SLOTS;
+            case 1:
+                return INPUT_SLOTS;
+            default:
+                return new int[] { FUEL_SLOT };
+        }
     }
 
     @Override
-    protected int[] getOutputSlots()
+    public boolean canInsertItem(int slotId, ItemStack itemStack, int side)
     {
-        return OUTPUT_SLOTS;
+        return isItemValidForSlot(slotId, itemStack);
     }
 
     @Override
-    protected int getFuelSlot()
+    public boolean canExtractItem(int slotId, ItemStack itemStack, int side)
     {
-        return FUEL_SLOT;
+        return side == 0 && slotId >= 2 && slotId <= 10;
     }
-
 }

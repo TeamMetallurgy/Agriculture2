@@ -7,7 +7,9 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -34,7 +36,40 @@ public abstract class BlockBaseMachine extends BlockContainer
         TileEntity tileEntity = world.getTileEntity(x, y, z);
         if (tileEntity instanceof TileEntityBaseMachine)
         {
-            ((TileEntityBaseMachine) tileEntity).dropContents(random);
+            TileEntityBaseMachine tileEntityMachine = (TileEntityBaseMachine) tileEntity;
+
+            // Dropping inventory
+            for (int i = 0; i < tileEntityMachine.getSizeInventory(); i++)
+            {
+                ItemStack itemstack = tileEntityMachine.getStackInSlot(i);
+
+                if (itemstack != null)
+                {
+                    double offsetX = random.nextFloat() * 0.8D + 0.1D;
+                    double offsetY = random.nextFloat() * 0.8D + 0.1D;
+                    double offsetZ = random.nextFloat() * 0.8D + 0.1D;
+
+                    while (itemstack.stackSize > 0)
+                    {
+                        int split = this.random.nextInt(21) + 10;
+
+                        if (split > itemstack.stackSize)
+                        {
+                            split = itemstack.stackSize;
+                        }
+
+                        itemstack.stackSize -= split;
+                        ItemStack spawningStack = itemstack.copy();
+                        EntityItem entityitem = new EntityItem(world, x + offsetX, y + offsetY, z + offsetZ, spawningStack);
+
+                        double motionOffset = 0.05D;
+                        entityitem.motionX = (double) (random.nextGaussian() * motionOffset);
+                        entityitem.motionY = (double) (random.nextGaussian() * motionOffset + 0.2D);
+                        entityitem.motionZ = (double) (random.nextGaussian() * motionOffset);
+                        world.spawnEntityInWorld(entityitem);
+                    }
+                }
+            }
         }
         super.breakBlock(world, x, y, z, block, meta);
     }

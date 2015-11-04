@@ -12,19 +12,7 @@ public class TileEntityCounter extends TileEntityBaseMachine
 
     public TileEntityCounter()
     {
-        super(44, INPUT_SLOTS, new int[] {}, OUTPUT_SLOTS);
-    }
-
-    @Override
-    protected int getFuelSlot()
-    {
-        return -1;
-    }
-
-    @Override
-    protected int[] getInputSlots()
-    {
-        return INPUT_SLOTS;
+        super(44);
     }
 
     @Override
@@ -40,16 +28,28 @@ public class TileEntityCounter extends TileEntityBaseMachine
     }
 
     @Override
-    protected int[] getOutputSlots()
+    public boolean isItemValidForSlot(int slotId, ItemStack itemStack)
     {
-        return OUTPUT_SLOTS;
+        return true;
     }
 
     @Override
-    protected ItemStack getSmeltingResult(ItemStack... arg0)
+    public int[] getAccessibleSlotsFromSide(int side)
     {
-        // TODO Auto-generated method stub
-        return null;
+        if (side == 0) { return OUTPUT_SLOTS; }
+        return INPUT_SLOTS;
+    }
+
+    @Override
+    public boolean canInsertItem(int slotId, ItemStack itemStack, int side)
+    {
+        return isItemValidForSlot(slotId, itemStack);
+    }
+
+    @Override
+    public boolean canExtractItem(int slotId, ItemStack itemStack, int side)
+    {
+        return side == 0 && slotId >= 16 && slotId <= 19;
     }
 
 }

@@ -1,17 +1,19 @@
 package com.teammetallurgy.agriculture.machine.oven;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 
 import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 
 public class TileEntityOven extends TileEntityBaseMachine
 {
-    private static final int[] INPUT_SLOTS = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19};
+    private static final int[] INPUT_SLOTS = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
     private static final int FUEL_SLOT = 0;
-    private static final int[] OUTPUT_SLOTS = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+    private static final int[] OUTPUT_SLOTS = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+
     public TileEntityOven()
     {
-        super(20, INPUT_SLOTS, new int[]{FUEL_SLOT}, OUTPUT_SLOTS);
+        super(20);
     }
 
     @Override
@@ -27,29 +29,37 @@ public class TileEntityOven extends TileEntityBaseMachine
     }
 
     @Override
-    protected ItemStack getSmeltingResult(ItemStack... itemStack)
+    public boolean isItemValidForSlot(int slotId, ItemStack itemStack)
     {
-        // TODO Auto-generated method stub
-        return null;
+        if (slotId == 0) { return TileEntityFurnace.isItemFuel(itemStack); }
+
+        return true;
     }
 
     @Override
-    protected int[] getInputSlots()
+    public int[] getAccessibleSlotsFromSide(int side)
     {
-        return INPUT_SLOTS;
+        switch (side)
+        {
+            case 0:
+                return OUTPUT_SLOTS;
+            case 1:
+                return INPUT_SLOTS;
+            default:
+                return new int[] { FUEL_SLOT };
+        }
     }
 
     @Override
-    protected int[] getOutputSlots()
+    public boolean canInsertItem(int slotId, ItemStack itemStack, int side)
     {
-        return OUTPUT_SLOTS;
+        return isItemValidForSlot(slotId, itemStack);
     }
 
     @Override
-    protected int getFuelSlot()
-    { 
-        return FUEL_SLOT;
+    public boolean canExtractItem(int slotId, ItemStack itemStack, int side)
+    {
+        return side == 0 && slotId >= 1 && slotId <= 16;
     }
-    
 
 }

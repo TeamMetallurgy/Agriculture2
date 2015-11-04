@@ -13,7 +13,7 @@ public class TileEntityBrewer extends TileEntityBaseMachine
 
     public TileEntityBrewer()
     {
-        super(3, INPUT_SLOT, new int[] { FUEL_SLOT }, new int[] { OUTPUT_SLOT });
+        super(3);
     }
 
     @Override
@@ -29,28 +29,35 @@ public class TileEntityBrewer extends TileEntityBaseMachine
     }
 
     @Override
-    protected ItemStack getSmeltingResult(ItemStack... itemStack)
+    public boolean isItemValidForSlot(int slotId, ItemStack itemStack)
     {
-
-        return null;
+        return true;
     }
 
     @Override
-    protected int[] getInputSlots()
+    public int[] getAccessibleSlotsFromSide(int side)
     {
-        return TileEntityBrewer.INPUT_SLOT;
+        switch (side)
+        {
+            case 0:
+                return new int[] { OUTPUT_SLOT };
+            case 1:
+                return INPUT_SLOT;
+            default:
+                return new int[] { FUEL_SLOT };
+        }
+
     }
 
     @Override
-    protected int[] getOutputSlots()
+    public boolean canInsertItem(int slotId, ItemStack itemStack, int side)
     {
-        return new int[] { TileEntityBrewer.OUTPUT_SLOT };
+        return isItemValidForSlot(slotId, itemStack);
     }
 
     @Override
-    protected int getFuelSlot()
+    public boolean canExtractItem(int slotId, ItemStack itemStack, int side)
     {
-        return TileEntityBrewer.FUEL_SLOT;
+        return slotId == 2 && side == 0;
     }
-
 }
