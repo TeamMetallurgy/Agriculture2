@@ -17,10 +17,8 @@
   ],
   "parent":"",
   "requiredMods" : [
-     "MetallurgyCore@[4.0.4,]"
   ],
   "dependencies": [
-    "MetallurgyCore@[4.0.4,]"
    ],
   "dependants": [
    ],
