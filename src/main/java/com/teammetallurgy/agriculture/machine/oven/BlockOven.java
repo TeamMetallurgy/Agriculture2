@@ -17,14 +17,17 @@ public class BlockOven extends BlockBaseMachine
     }
 
     @Override
-    protected void doOnActivate(World world, int x, int y, int z, EntityPlayer player, int side, float xOffset, float yOffset, float zOffset)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float distanceX, float distanceY, float distanceZ)
     {
         TileEntity tileEntity = world.getTileEntity(x, y, z);
 
-        if (!(tileEntity instanceof TileEntityOven)) return;
+        if (tileEntity instanceof TileEntityOven)
+        {
 
-        player.openGui(Agriculture.instance, GuiIds.OVEN, world, x, y, z);
-
+            player.openGui(Agriculture.instance, GuiIds.OVEN, world, x, y, z);
+            return true;
+        }
+        return super.onBlockActivated(world, x, y, z, player, side, distanceX, distanceY, distanceZ);
     }
 
 }

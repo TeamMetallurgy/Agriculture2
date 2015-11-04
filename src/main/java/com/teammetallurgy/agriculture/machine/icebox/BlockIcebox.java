@@ -23,14 +23,17 @@ public class BlockIcebox extends BlockBaseMachine
     }
 
     @Override
-    protected void doOnActivate(World world, int x, int y, int z, EntityPlayer player, int side, float xOffset, float yOffset, float zOffset)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float distanceX, float distanceY, float distanceZ)
     {
         TileEntity tileEntity = world.getTileEntity(x, y, z);
 
-        if (!(tileEntity instanceof TileEntityIcebox)) return;
+        if (tileEntity instanceof TileEntityIcebox)
+        {
 
-        player.openGui(Agriculture.instance, GuiIds.ICEBOX, world, x, y, z);
-
+            player.openGui(Agriculture.instance, GuiIds.ICEBOX, world, x, y, z);
+            return true;
+        }
+        return super.onBlockActivated(world, x, y, z, player, side, distanceX, distanceY, distanceZ);
     }
 
 }

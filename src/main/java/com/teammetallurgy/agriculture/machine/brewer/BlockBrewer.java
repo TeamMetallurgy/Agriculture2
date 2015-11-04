@@ -18,14 +18,15 @@ public class BlockBrewer extends BlockBaseMachine
     }
 
     @Override
-    protected void doOnActivate(World world, int x, int y, int z, EntityPlayer player, int side, float xOffset, float yOffset, float zOffset)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float distanceX, float distanceY, float distanceZ)
     {
         TileEntity tileEntity = world.getTileEntity(x, y, z);
 
-        if (!(tileEntity instanceof TileEntityBrewer)) return;
-
-        player.openGui(Agriculture.instance, GuiIds.BREWER, world, x, y, z);
-
+        if (tileEntity instanceof TileEntityBrewer)
+        {
+            player.openGui(Agriculture.instance, GuiIds.BREWER, world, x, y, z);
+            return true;
+        }
+        return super.onBlockActivated(world, x, y, z, player, side, distanceX, distanceY, distanceZ);
     }
-
 }

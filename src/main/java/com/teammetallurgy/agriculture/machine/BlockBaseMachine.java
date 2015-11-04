@@ -1,36 +1,42 @@
 package com.teammetallurgy.agriculture.machine;
 
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.agriculture.Agriculture;
-import com.teammetallurgy.metallurgycore.machines.BlockMetallurgyCore;
 
-public class BlockBaseMachine extends BlockMetallurgyCore
+public abstract class BlockBaseMachine extends BlockContainer
 {
+    Random random = new Random();
 
     public BlockBaseMachine()
     {
+        super(Material.rock);
         this.setBlockTextureName("minecraft:brick");
         this.setHardness(3F);
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int meta)
-    {
-        return null;
-    }
+    abstract public TileEntity createNewTileEntity(World world, int meta);
 
     @Override
-    protected void doOnActivate(World world, int x, int y, int z, EntityPlayer player, int side, float xOffset, float yOffset, float zOffset)
+    public void breakBlock(World world, int x, int y, int z, Block block, int meta)
     {
-        // TODO Auto-generated method stub
-
+        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        if (tileEntity instanceof TileEntityBaseMachine)
+        {
+            ((TileEntityBaseMachine) tileEntity).dropContents(random);
+        }
+        super.breakBlock(world, x, y, z, block, meta);
     }
 
     @Override
