@@ -12,6 +12,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.gson.Gson;
 import com.teammetallurgy.agriculture.Agriculture;
+import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 import com.teammetallurgy.agriculture.recpies.Recipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -62,7 +63,7 @@ public class FoodSet
         }
         catch (IOException e)
         {
-            Agriculture.logger.warn(e.getLocalizedMessage());
+            AgricultureLogHandler.warn(e.getLocalizedMessage());
         }
 
         this.foods = new Gson().fromJson(reader, Food[].class);
