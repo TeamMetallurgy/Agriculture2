@@ -83,7 +83,7 @@ public class FoodSet
             if (food.type == Food.FoodType.base)
             {
                 item = this.createItem(this.defaultItem, meta, tag, identifier);
-                item.addSubItem(meta, food.getName(), 0, texture, food.method);
+                item.addSubItem(meta, food.getName(), food.type, texture, food.method);
                 ItemStack stack = new ItemStack(item, 1, meta);
 
                 OreDictionary.registerOre(identifier + tag, stack);
@@ -95,7 +95,7 @@ public class FoodSet
             if (food.type == Food.FoodType.edible)
             {
                 item = this.createItem(this.defaultItem, meta, tag, identifier);
-                item.addSubItem(meta, food.getName(), 1, texture, food.method);
+                item.addSubItem(meta, food.getName(), food.type, texture, food.method);
                 ItemStack stack = new ItemStack(item, 1, meta);
 
                 OreDictionary.registerOre(identifier + tag, stack);

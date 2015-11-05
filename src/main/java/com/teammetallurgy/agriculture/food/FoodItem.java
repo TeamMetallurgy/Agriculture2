@@ -16,6 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.agriculture.Agriculture;
+import com.teammetallurgy.agriculture.food.Food.FoodType;
 import com.teammetallurgy.agriculture.food.Food.Methods;
 
 import cpw.mods.fml.relauncher.Side;
@@ -24,7 +25,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class FoodItem extends ItemFood
 {
     private HashMap<Integer, String> names = new HashMap<Integer, String>();
-    private HashMap<Integer, Integer> itemTypes = new HashMap<Integer, Integer>();
+    private HashMap<Integer, FoodType> itemTypes = new HashMap<Integer, FoodType>();
     private HashMap<Integer, String> textures = new HashMap<Integer, String>();
     private HashMap<Integer, IIcon> icons = new HashMap<Integer, IIcon>();
     private HashMap<Integer, ArrayList<ItemStack>> recipes = new HashMap<Integer, ArrayList<ItemStack>>();
@@ -42,14 +43,9 @@ public class FoodItem extends ItemFood
         this.setMaxDamage(0);
     }
 
-    public void addSubItem(int meta, String name, int itemType, String texture, Methods method)
+    public void addSubItem(int meta, String name, FoodType itemType, String texture, Methods method)
     {
         this.names.put(meta, name);
-
-        if ((itemType < 0) || (itemType > 2))
-        {
-            itemType = 0;
-        }
 
         this.itemTypes.put(meta, itemType);
 
@@ -202,14 +198,14 @@ public class FoodItem extends ItemFood
     @Override
     public EnumAction getItemUseAction(ItemStack itemStack)
     {
-        if (this.itemTypes.get(itemStack.getItemDamage()) == 1) { return super.getItemUseAction(itemStack); }
+        if (this.itemTypes.get(itemStack.getItemDamage()) == FoodType.edible) { return super.getItemUseAction(itemStack); }
         return EnumAction.none;
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-        if (this.itemTypes.get(itemStack.getItemDamage()) == 1)
+        if (this.itemTypes.get(itemStack.getItemDamage()) == FoodType.edible)
         {
             player.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
         }
