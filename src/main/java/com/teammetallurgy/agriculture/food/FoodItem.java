@@ -182,14 +182,17 @@ public class FoodItem extends ItemFood
     @Override
     public ItemStack onEaten(ItemStack itemStack, World world, EntityPlayer player)
     {
-        if (this.itemTypes.get(itemStack.getItemDamage()) == null) { return super.onEaten(itemStack, world, player); }
+        if (this.itemTypes.get(itemStack.getItemDamage()) != null)
+        {
+            return super.onEaten(itemStack, world, player);
+        }
         return itemStack;
     }
 
     @Override
     protected void onFoodEaten(ItemStack itemStack, World world, EntityPlayer player)
     {
-        if (this.itemTypes.get(itemStack.getItemDamage()) == null)
+        if (this.itemTypes.get(itemStack.getItemDamage()) != null)
         {
             super.onFoodEaten(itemStack, world, player);
         }
