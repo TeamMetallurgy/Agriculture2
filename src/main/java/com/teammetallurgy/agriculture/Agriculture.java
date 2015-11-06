@@ -6,6 +6,7 @@ import com.teammetallurgy.agriculture.handler.AgricultureConfigHandler;
 import com.teammetallurgy.agriculture.handler.AgricultureEventHandler;
 import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 import com.teammetallurgy.agriculture.handler.GuiHandler;
+import com.teammetallurgy.agriculture.handler.MissingMapHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.agriculture.recpies.Recipes;
 import com.teammetallurgy.agriculture.utils.AgricultureCreativeTab;
@@ -16,6 +17,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -67,6 +69,12 @@ public class Agriculture
     public void postInit(FMLPostInitializationEvent event)
     {
         Recipes.createRecipes();
+    }
+
+    @EventHandler
+    public void missingMapping(FMLMissingMappingsEvent event)
+    {
+        MissingMapHandler.processingMissingMap(event);
     }
 
     private void setCreativeTabsIcons()

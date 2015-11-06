@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Set;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -82,7 +83,7 @@ public class FoodSet
             String identifier = "crop";
             if (food.type == Food.FoodType.base)
             {
-                item = this.createItem(this.defaultItem, meta, tag, identifier);
+                item = this.createItem(this.defaultItem, meta, tag);
                 item.addSubItem(meta, food.getName(), food.type, texture, food.method);
                 ItemStack stack = new ItemStack(item, 1, meta);
 
@@ -94,7 +95,7 @@ public class FoodSet
             identifier = "food";
             if (food.type == Food.FoodType.edible)
             {
-                item = this.createItem(this.defaultItem, meta, tag, identifier);
+                item = this.createItem(this.defaultItem, meta, tag);
                 item.addSubItem(meta, food.getName(), food.type, texture, food.method);
                 ItemStack stack = new ItemStack(item, 1, meta);
 
@@ -127,11 +128,11 @@ public class FoodSet
         }
     }
 
-    private FoodItem createItem(FoodItem foodItem, int meta, String tag, String identifier)
+    private FoodItem createItem(FoodItem foodItem, int meta, String tag)
     {
         if (meta == 0)
         {
-            GameRegistry.registerItem(foodItem, this.name + "." + identifier);
+            GameRegistry.registerItem(foodItem, this.name + ".item");
         }
 
         return foodItem;
