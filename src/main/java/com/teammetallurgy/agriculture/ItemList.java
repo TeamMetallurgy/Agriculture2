@@ -113,6 +113,12 @@ public class ItemList
             {
                 itemStacks.add(ores.get(0).copy());
             }
+
+            ArrayList<ItemStack> foods = OreDictionary.getOres("food" + recipe);
+            if (!foods.isEmpty())
+            {
+                itemStacks.add(foods.get(0).copy());
+            }
         }
         return itemStacks;
     }
