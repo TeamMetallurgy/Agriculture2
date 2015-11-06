@@ -27,6 +27,10 @@ tile.agriculture.peanut.name=Peanut
 tile.agriculture.strawberry.name=Strawberry
 tile.agriculture.vanilla.name=Vanilla
 
+tooltip.agriculture.heal=Heal Amount
+tooltip.agriculture.namedId=Name ID
+tooltip.agriculture.oredic=OreDic Names
+
 item.agriculture.flour.name=Flour
 item.agriculture.dough.name=Dough
 item.agriculture.loaf.of.bread.name=Loaf of Bread

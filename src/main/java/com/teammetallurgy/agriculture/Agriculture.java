@@ -1,6 +1,9 @@
 package com.teammetallurgy.agriculture;
 
+import net.minecraftforge.common.MinecraftForge;
+
 import com.teammetallurgy.agriculture.handler.AgricultureConfigHandler;
+import com.teammetallurgy.agriculture.handler.AgricultureEventHandler;
 import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
@@ -57,6 +60,7 @@ public class Agriculture
         GameRegistry.registerWorldGenerator(new WorldGenSalt(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenPlants(), 0);
         proxy.initRenderers();
+        MinecraftForge.EVENT_BUS.register(new AgricultureEventHandler());
     }
 
     @EventHandler

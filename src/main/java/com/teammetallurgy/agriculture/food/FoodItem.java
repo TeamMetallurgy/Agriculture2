@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.agriculture.Agriculture;
@@ -168,7 +169,7 @@ public class FoodItem extends ItemFood
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean advanced)
     {
-        list.add("Heal amount: " + this.healAmounts.get(itemStack.getItemDamage()));
+        list.add(StatCollector.translateToLocal("tooltip.agriculture.heal") + ": " + this.healAmounts.get(itemStack.getItemDamage()));
     }
 
     // Vanilla Overrides

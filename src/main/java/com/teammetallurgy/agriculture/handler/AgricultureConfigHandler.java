@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 public class AgricultureConfigHandler
 {
     private static Configuration configuration;
+    public static boolean EXTRA_TOOLTIPS = false;
 
     public static boolean generates(String name)
     {
@@ -89,6 +90,7 @@ public class AgricultureConfigHandler
 
         configuration.load();
 
+        EXTRA_TOOLTIPS = configuration.getBoolean("extra_tooltips", "debug", EXTRA_TOOLTIPS, "Adds named ID and OreDic names to the Item's Tool tip in advance mode (F3 + h)");
         saveChanges();
     }
 }
