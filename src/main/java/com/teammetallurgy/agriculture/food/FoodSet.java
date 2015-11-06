@@ -7,12 +7,12 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Set;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.gson.Gson;
 import com.teammetallurgy.agriculture.Agriculture;
+import com.teammetallurgy.agriculture.food.Food.FoodType;
 import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 import com.teammetallurgy.agriculture.recpies.Recipes;
 
@@ -52,6 +52,7 @@ public class FoodSet
         postfix = postfix.replace(" ", ".");
 
         this.defaultItem = new FoodItem(postfix, 2);
+        GameRegistry.registerItem(defaultItem, this.name + ".item");
     }
 
     public void load(InputStream inputStream)
@@ -78,31 +79,20 @@ public class FoodSet
             texture = Agriculture.MODID + ":" + this.name + "/" + texture.toLowerCase();
 
             String tag = food.getName().replace(" ", "");
-            FoodItem item = null;
 
-            String identifier = "crop";
-            if (food.type == Food.FoodType.base)
+            String oreDicPrefix = "crop";
+
+            if (food.type == FoodType.edible)
             {
-                item = this.createItem(this.defaultItem, meta, tag);
-                item.addSubItem(meta, food.getName(), food.type, texture, food.method);
-                ItemStack stack = new ItemStack(item, 1, meta);
-
-                OreDictionary.registerOre(identifier + tag, stack);
-
-                this.itemStacks.put(tag, stack);
+                oreDicPrefix = "food";
             }
 
-            identifier = "food";
-            if (food.type == Food.FoodType.edible)
-            {
-                item = this.createItem(this.defaultItem, meta, tag);
-                item.addSubItem(meta, food.getName(), food.type, texture, food.method);
-                ItemStack stack = new ItemStack(item, 1, meta);
+            defaultItem.addSubItem(meta, food.getName(), food.type, texture, food.method);
+            ItemStack stack = new ItemStack(defaultItem, 1, meta);
 
-                OreDictionary.registerOre(identifier + tag, stack);
+            OreDictionary.registerOre(oreDicPrefix + tag, stack);
 
-                this.itemStacks.put(tag, new ItemStack(item, 1, meta));
-            }
+            this.itemStacks.put(tag, stack);
 
             if (food.method == Food.Methods.process && food.recipe != null)
             {
@@ -126,16 +116,6 @@ public class FoodSet
                 this.recipes.put(tag, food.recipe);
             }
         }
-    }
-
-    private FoodItem createItem(FoodItem foodItem, int meta, String tag)
-    {
-        if (meta == 0)
-        {
-            GameRegistry.registerItem(foodItem, this.name + ".item");
-        }
-
-        return foodItem;
     }
 
     public ItemStack getItemStack(String food)
