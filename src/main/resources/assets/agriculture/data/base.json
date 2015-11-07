@@ -209,7 +209,7 @@
         "name":"Cheesy Potatoes",
         "type":"edible",
         "method":"prepare",
-        "recipe":["Mashed Potatos", "Cheese"]
+        "recipe":["Mashed Potatoes", "Cheese"]
     },
     {
         "name":"Chicken Nuggets",
@@ -659,7 +659,7 @@
         "name":"Toast",
         "type":"edible",
         "method":"bake",
-        "recipe":["Slice Of Bread"]
+        "recipe":["Slice of Bread"]
     },
     {
         "name":"Toasted PBJ Sandwich Apple",
