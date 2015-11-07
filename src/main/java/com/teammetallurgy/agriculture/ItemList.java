@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -23,7 +22,6 @@ public class ItemList
     public static void preInit()
     {
         ItemList.initFoodList();
-        OreDictionary.registerOre("cropWheat", new ItemStack(Items.wheat));
     }
 
     public static void recalculateValues()
