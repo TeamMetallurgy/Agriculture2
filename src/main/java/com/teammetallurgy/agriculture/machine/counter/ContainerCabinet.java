@@ -20,7 +20,7 @@ public class ContainerCabinet extends Container
         {
             for (int j = 0; j < 4; j++)
             {
-                this.addSlotToContainer(new Slot(this.machine, j + i * 3 + 20, 8 + j * 18, 14 + i * 18));
+                this.addSlotToContainer(new Slot(this.machine, j + i * 4 + 20, 8 + j * 18, 14 + i * 18));
             }
         }
 
@@ -29,7 +29,7 @@ public class ContainerCabinet extends Container
         {
             for (int j = 0; j < 4; j++)
             {
-                this.addSlotToContainer(new Slot(this.machine, j + i * 3 + 32, 98 + j * 18, 14 + i * 18));
+                this.addSlotToContainer(new Slot(this.machine, j + i * 4 + 32, 98 + j * 18, 14 + i * 18));
             }
         }
 
