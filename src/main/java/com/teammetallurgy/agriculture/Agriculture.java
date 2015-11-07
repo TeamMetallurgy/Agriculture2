@@ -7,6 +7,7 @@ import com.teammetallurgy.agriculture.handler.AgricultureEventHandler;
 import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 import com.teammetallurgy.agriculture.handler.GuiHandler;
 import com.teammetallurgy.agriculture.handler.MissingMapHandler;
+import com.teammetallurgy.agriculture.hunger.Hunger;
 import com.teammetallurgy.agriculture.networking.CommonProxy;
 import com.teammetallurgy.agriculture.recpies.Recipes;
 import com.teammetallurgy.agriculture.utils.AgricultureCreativeTab;
@@ -57,7 +58,6 @@ public class Agriculture
     public void init(FMLInitializationEvent event)
     {
         NetworkRegistry.INSTANCE.registerGuiHandler(Agriculture.instance, new GuiHandler());
-        ItemList.recalculateValues();
         GameRegistry.registerWorldGenerator(new WorldGenSalt(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenPlants(), 0);
         proxy.initRenderers();
@@ -68,6 +68,7 @@ public class Agriculture
     public void postInit(FMLPostInitializationEvent event)
     {
         Recipes.create();
+        Hunger.init();
     }
 
     @EventHandler

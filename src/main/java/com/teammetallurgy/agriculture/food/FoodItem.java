@@ -1,6 +1,5 @@
 package com.teammetallurgy.agriculture.food;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -116,66 +115,29 @@ public class FoodItem extends ItemFood
         }
     }
 
-    public void calculateValues(int itemDamage)
-    {
-        /*
-        ArrayList<ItemStack> arrayList = this.recipes.get(itemDamage);
-
-        int healAmount = 0;
-
-        healAmount = this.calculateItemValue(itemDamage, arrayList, healAmount);
-
-        this.healAmounts.put(itemDamage, healAmount);
-        */
-    }
-
-    private int calculateItemValue(int itemDamage, ArrayList<ItemStack> arrayList, int healAmount)
-    {
-        /*
-        for (ItemStack stack : arrayList)
-        {
-            Item item = stack.getItem();
-            if ((item != null))
-            {
-                ArrayList<ItemStack> arrayList2 = this.recipes.get(stack.getItemDamage());
-                if ((item instanceof FoodItem) && (arrayList2 != null))
-                {
-                    healAmount += this.calculateItemValue(stack.getItemDamage(), arrayList2, healAmount);
-                }
-                else if (item instanceof ItemFood)
-                {
-                    healAmount += ((ItemFood) item).func_150905_g(stack);
-                }
-
-                else
-                {
-                    healAmount += 2;
-                }
-            }
-
-            Food.Methods method = this.methods.get(itemDamage);
-
-            if (method != null)
-            {
-                healAmount += method.getHungerBonus();
-            }
-        }
-        */
-        return healAmount;
-    }
-
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean advanced)
     {
         list.add(StatCollector.translateToLocal("tooltip.agriculture.heal") + ": " + this.healAmounts.get(itemStack.getItemDamage()));
     }
 
+    public int getHeal(ItemStack itemStack)
+    {
+        return healAmounts.get(itemStack.getItemDamage());
+    }
+
+    public void setHeal(ItemStack stack, int amount)
+    {
+        healAmounts.put(stack.getItemDamage(), amount);
+    }
+
     // Vanilla Overrides
 
+    // getFoodLevel
     @Override
     public int func_150905_g(ItemStack itemStack)
     {
-        return this.healAmounts.get(itemStack.getItemDamage());
+        return getHeal(itemStack);
     }
 
     @Override

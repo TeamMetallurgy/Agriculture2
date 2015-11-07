@@ -5,12 +5,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.google.common.io.Resources;
-import com.teammetallurgy.agriculture.food.Food;
-import com.teammetallurgy.agriculture.food.FoodItem;
 import com.teammetallurgy.agriculture.food.FoodSet;
 
 public class ItemList
@@ -21,30 +18,6 @@ public class ItemList
     public static void preInit()
     {
         ItemList.initFoodList();
-    }
-
-    public static void recalculateValues()
-    {
-        for (String set : ItemList.setList.keySet())
-        {
-            FoodSet foodSet = ItemList.setList.get(set);
-
-            for (Food food : foodSet.getFoods())
-            {
-                calculateValuesFor(foodSet.getItemStack(food.getName()));
-            }
-        }
-    }
-
-    private static void calculateValuesFor(ItemStack itemStack)
-    {
-        if (itemStack == null) { return; }
-
-        Item item = itemStack.getItem();
-        if ((item != null) && (item instanceof FoodItem))
-        {
-            ((FoodItem) item).calculateValues(itemStack.getItemDamage());
-        }
     }
 
     private static void initFoodList()
