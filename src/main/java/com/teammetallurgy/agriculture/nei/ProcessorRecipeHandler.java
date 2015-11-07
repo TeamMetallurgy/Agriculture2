@@ -2,10 +2,12 @@ package com.teammetallurgy.agriculture.nei;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import codechicken.nei.NEIClientUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
@@ -28,19 +30,19 @@ public class ProcessorRecipeHandler extends TemplateRecipeHandler
     {
         return "agriculture:textures/gui/Processor.png";
     }
-    
+
     @Override
     public String getOverlayIdentifier()
     {
-        return "agricultureProcessorRecipe";
+        return "agriculture.processor.recipe";
     }
-    
+
     @Override
     public void loadTransferRects()
     {
-        transferRects.add(new RecipeTransferRect(new Rectangle(84, 23, 24, 18), "agricultureProcessorRecipe"));
+        transferRects.add(new RecipeTransferRect(new Rectangle(84, 23, 24, 18), "agriculture.processor.recipe"));
     }
-    
+
     @Override
     public Class<? extends GuiContainer> getGuiClass()
     {
@@ -50,76 +52,89 @@ public class ProcessorRecipeHandler extends TemplateRecipeHandler
     @Override
     public void loadCraftingRecipes(String outputId, Object... results)
     {
-        if (!outputId.equals("agricultureProcessorRecipe") || !(getClass() == ProcessorRecipeHandler.class))
+        if (!outputId.equals("agriculture.processor.recipe") || !(getClass() == ProcessorRecipeHandler.class))
         {
             super.loadCraftingRecipes(outputId, results);
             return;
         }
-        
-        for (RecipeProcessor pRecipe : Recipes.getProcessorRecipes())
+
+        for (RecipeProcessor recipe : Recipes.getProcessorRecipes())
         {
-            arecipes.add(new CachedProcessorRecipe(pRecipe.getInput(0), pRecipe.getInput(1), pRecipe.getOutput()));
+            arecipes.add(new CachedProcessorRecipe(recipe.getInputs(0), recipe.getInputs(1), recipe.getOutput()));
         }
-        
+
     }
-    
+
     @Override
     public void loadCraftingRecipes(ItemStack result)
     {
-        if (result == null || result.getItem() == null)
-            return;
-        
-        for (RecipeProcessor pRecipe : Recipes.getProcessorRecipes())
-        {   
-            if (pRecipe.getOutput() == null)
-                continue;
-            
-            if(pRecipe.getOutput().isItemEqual(result))
-                arecipes.add(new CachedProcessorRecipe(pRecipe.getInput(0), pRecipe.getInput(1), pRecipe.getOutput()));
+        if (result == null || result.getItem() == null) return;
+
+        for (RecipeProcessor recipe : Recipes.getProcessorRecipes())
+        {
+
+            if (ItemStack.areItemStacksEqual(recipe.getOutput(), result))
+            {
+                arecipes.add(new CachedProcessorRecipe(recipe.getInputs(0), recipe.getInputs(1), recipe.getOutput()));
+            }
         }
     }
-    
+
     @Override
     public void loadUsageRecipes(ItemStack ingredient)
     {
-        if (ingredient == null || ingredient.getItem() == null)
-            return;
-        
-        for (RecipeProcessor pRecipe : Recipes.getProcessorRecipes())
+        if (ingredient == null || ingredient.getItem() == null) return;
+
+        for (RecipeProcessor recipe : Recipes.getProcessorRecipes())
         {
-            if(pRecipe.getInput(0) != null && ingredient.isItemEqual(pRecipe.getInput(0)))
-                arecipes.add(new CachedProcessorRecipe(pRecipe.getInput(0), pRecipe.getInput(1), pRecipe.getOutput()));
-            
-            if(pRecipe.getInput(1) != null && ingredient.isItemEqual(pRecipe.getInput(1)))
-                arecipes.add(new CachedProcessorRecipe(pRecipe.getInput(0), pRecipe.getInput(1), pRecipe.getOutput()));
+            ItemStack[] ingreadients = recipe.getInputs(0);
+            for (ItemStack ingreadient : ingreadients)
+            {
+                if (OreDictionary.itemMatches(ingreadient, ingredient, false))
+                {
+                    CachedProcessorRecipe cachedRecipe = new CachedProcessorRecipe(recipe.getInputs(0), recipe.getInputs(1), recipe.getOutput());
+                    cachedRecipe.setIngredientPermutation(Arrays.asList(cachedRecipe.ingredinets.get(0)), ingredient);
+                    arecipes.add(cachedRecipe);
+                }
+            }
+
+            ingreadients = recipe.getInputs(1);
+            for (ItemStack ingreadient : ingreadients)
+            {
+                if (OreDictionary.itemMatches(ingreadient, ingredient, false))
+                {
+                    CachedProcessorRecipe cachedRecipe = new CachedProcessorRecipe(recipe.getInputs(0), recipe.getInputs(1), recipe.getOutput());
+                    cachedRecipe.setIngredientPermutation(Arrays.asList(cachedRecipe.ingredinets.get(1)), ingredient);
+                    arecipes.add(cachedRecipe);
+                }
+            }
         }
     }
-    
+
     public class CachedProcessorRecipe extends CachedRecipe
     {
 
-        public ArrayList<PositionedStack> ingredinets = new ArrayList<PositionedStack>() ;
+        public ArrayList<PositionedStack> ingredinets = new ArrayList<PositionedStack>();
         public PositionedStack result;
-        
-        public CachedProcessorRecipe(ItemStack ingredinet1, ItemStack ingredinet2, ItemStack result)
+
+        public CachedProcessorRecipe(ItemStack[] ingredinets1, ItemStack[] ingredinets2, ItemStack result)
         {
-            this.ingredinets.add(new PositionedStack(ingredinet1, 35, 21));
-            if (ingredinet2 != null)
-                this.ingredinets.add(new PositionedStack(ingredinet2, 71, 21));
+            this.ingredinets.add(new PositionedStack(ingredinets1, 35, 21));
+            if (ingredinets2 != null) this.ingredinets.add(new PositionedStack(ingredinets2, 71, 21));
             this.result = new PositionedStack(result, 117, 21);
         }
-        
+
         @Override
         public List<PositionedStack> getIngredients()
         {
-            return getCycledIngredients(cycleticks / 20, this.ingredinets);
+            return getCycledIngredients(cycleticks / 48, this.ingredinets);
         }
-        
+
         @Override
         public PositionedStack getResult()
         {
             return result;
         }
-        
+
     }
 }

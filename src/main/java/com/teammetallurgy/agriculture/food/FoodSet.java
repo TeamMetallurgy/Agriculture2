@@ -79,7 +79,7 @@ public class FoodSet
 
             OreDictionary.registerOre(oreDicPrefix + tag, stack);
 
-            this.itemStacks.put(tag, stack);
+            this.itemStacks.put(food.getName(), stack);
         }
     }
 
