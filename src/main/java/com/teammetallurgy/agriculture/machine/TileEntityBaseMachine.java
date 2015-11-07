@@ -82,7 +82,7 @@ public abstract class TileEntityBaseMachine extends TileEntity implements ISided
             NBTTagCompound slotCompound = inventoryNBT.getCompoundTagAt(i);
             byte slotId = slotCompound.getByte("Slot");
 
-            if (slotId > 0 && slotId < inventory.length)
+            if (slotId >= 0 && slotId < inventory.length)
             {
                 inventory[slotId] = ItemStack.loadItemStackFromNBT(slotCompound);
             }
@@ -118,7 +118,7 @@ public abstract class TileEntityBaseMachine extends TileEntity implements ISided
     @Override
     public ItemStack getStackInSlot(int slotId)
     {
-        if (slotId > 0 && slotId < inventory.length) { return inventory[slotId]; }
+        if (slotId >= 0 && slotId < inventory.length) { return inventory[slotId]; }
 
         return null;
     }
