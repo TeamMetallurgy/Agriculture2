@@ -24,10 +24,10 @@ public class FoodSet
     private final String setTag;
     private Food[] foods;
 
-    private final HashMap<String, ItemStack> itemStacks = new HashMap<String, ItemStack>();
+    private HashMap<String, ItemStack> itemStacks = new HashMap<String, ItemStack>();
 
     private FoodItem defaultItem;
-    private final HashMap<String, String[]> recipes = new HashMap<String, String[]>();
+    private HashMap<String, String[]> recipes = new HashMap<String, String[]>();
 
     public FoodSet(String setName)
     {
@@ -121,6 +121,25 @@ public class FoodSet
     public ItemStack getItemStack(String food)
     {
         return this.itemStacks.get(food);
+    }
+
+    public Food[] getFoods()
+    {
+        return this.foods;
+    }
+
+    public Food getFoodInfo(String name)
+    {
+        Food food = null;
+        for (int i = 0; i < foods.length; i++)
+        {
+            if (name.equals(foods[i].getName()))
+            {
+                food = foods[i];
+                break;
+            }
+        }
+        return food;
     }
 
 }

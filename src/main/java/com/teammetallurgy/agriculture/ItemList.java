@@ -128,4 +128,14 @@ public class ItemList
 
         return foodSet.getItemStack(foodName);
     }
+
+    public static FoodSet getSet(String setName)
+    {
+        return setList.get(setName);
+    }
+
+    public static String[] getSetNames()
+    {
+        return setList.keySet().toArray(new String[setList.size()]);
+    }
 }
