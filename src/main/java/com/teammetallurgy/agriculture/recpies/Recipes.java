@@ -1,6 +1,7 @@
 package com.teammetallurgy.agriculture.recpies;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.teammetallurgy.agriculture.ItemList;
 import com.teammetallurgy.agriculture.food.Food;
@@ -13,10 +14,13 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class Recipes
 {
+    private static HashMap<String, String> predefinedOreDicNames = new HashMap<String, String>();
     private static ArrayList<RecipeProcessor> processorRecipes = new ArrayList<RecipeProcessor>();
 
     public static void create()
     {
+        initPredefinedOreDicNames();
+
         String[] setNames = ItemList.getSetNames();
         for (String setName : setNames)
         {
@@ -51,22 +55,33 @@ public class Recipes
         {
             Food ingreadient = foodSet.getFoodInfo(food.recipe[i]);
 
-            if (ingreadient == null)
+            if (ingreadient != null)
             {
-                // TODO: handle vanilla
-                return;
+                // Found a set ingreadient
+
+                String tag = ingreadient.getName().replace(" ", "");
+
+                String oreDicPrefix = "crop";
+
+                if (ingreadient.type == FoodType.base || ingreadient.type == FoodType.edible)
+                {
+                    oreDicPrefix = "food";
+                }
+
+                ingreadientsOreDic[i] = oreDicPrefix + tag;
+                continue;
             }
 
-            String tag = ingreadient.getName().replace(" ", "");
-
-            String oreDicPrefix = "crop";
-
-            if (ingreadient.type == FoodType.base || ingreadient.type == FoodType.edible)
+            // Find from predefined
+            String oreDicName = getPredefinedOreDicName(food.recipe[i]);
+            if (oreDicName != null)
             {
-                oreDicPrefix = "food";
+                ingreadientsOreDic[i] = oreDicName;
+                continue;
             }
 
-            ingreadientsOreDic[i] = oreDicPrefix + tag;
+            AgricultureLogHandler.info("Couldn't find ingreadiant '" + food.recipe[i] + "' for '" + food.getName() + "'" );
+            return;
         }
 
         switch (food.method)
@@ -88,6 +103,20 @@ public class Recipes
                 break;
 
         }
+    }
+
+    private static void initPredefinedOreDicNames()
+    {
+        predefinedOreDicNames.put("Carrot", "cropCarrot");
+        predefinedOreDicNames.put("Potato", "cropPotato");
+        predefinedOreDicNames.put("Stick", "stickWood");
+        predefinedOreDicNames.put("Water", "foodCupOfWater");
+        predefinedOreDicNames.put("Wheat", "cropWheat");
+    }
+
+    public static String getPredefinedOreDicName(String name)
+    {
+        return predefinedOreDicNames.get(name);
     }
 
     public static void addProcessorRecipe(ItemStack output, ItemStack... ingreadients)
