@@ -202,14 +202,19 @@ public class FoodItem extends ItemFood
     @Override
     public EnumAction getItemUseAction(ItemStack itemStack)
     {
-        if (this.itemTypes.get(itemStack.getItemDamage()) == FoodType.edible) { return super.getItemUseAction(itemStack); }
+        FoodType type = itemTypes.get(itemStack.getItemDamage());
+        if (type == FoodType.crop || type == FoodType.edible)
+        {
+            return super.getItemUseAction(itemStack);
+        }
         return EnumAction.none;
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-        if (this.itemTypes.get(itemStack.getItemDamage()) == FoodType.edible)
+        FoodType type = itemTypes.get(itemStack.getItemDamage());
+        if (type == FoodType.crop || type == FoodType.edible)
         {
             player.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
         }

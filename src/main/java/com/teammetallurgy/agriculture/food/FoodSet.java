@@ -82,7 +82,7 @@ public class FoodSet
 
             String oreDicPrefix = "crop";
 
-            if (food.type == FoodType.edible)
+            if (food.type == FoodType.base || food.type == FoodType.edible)
             {
                 oreDicPrefix = "food";
             }

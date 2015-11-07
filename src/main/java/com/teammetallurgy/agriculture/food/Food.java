@@ -4,7 +4,7 @@ public class Food
 {
     public static enum FoodType
     {
-        base, edible
+        base, crop, edible
     }
 
     public static enum Methods

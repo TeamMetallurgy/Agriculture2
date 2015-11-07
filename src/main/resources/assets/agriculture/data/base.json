@@ -267,7 +267,7 @@
     },
     {
         "name":"Cinnamon",
-        "type":"edible",
+        "type":"crop",
         "method":"",
         "recipe":[]
     },
@@ -465,7 +465,7 @@
     },
     {
         "name":"Peanuts",
-        "type":"edible",
+        "type":"crop",
         "method":"",
         "recipe":[]
     },
@@ -573,7 +573,7 @@
     },
     {
         "name":"Strawberry",
-        "type":"edible",
+        "type":"crop",
         "method":"",
         "recipe":[]
     },
@@ -681,7 +681,7 @@
     },
     {
         "name":"Vanilla",
-        "type":"edible",
+        "type":"crop",
         "method":"",
         "recipe":[]
     },
