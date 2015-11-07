@@ -29,7 +29,6 @@ public class FoodItem extends ItemFood
     private HashMap<Integer, FoodType> itemTypes = new HashMap<Integer, FoodType>();
     private HashMap<Integer, String> textures = new HashMap<Integer, String>();
     private HashMap<Integer, IIcon> icons = new HashMap<Integer, IIcon>();
-    private HashMap<Integer, ArrayList<ItemStack>> recipes = new HashMap<Integer, ArrayList<ItemStack>>();
     private HashMap<Integer, Integer> healAmounts = new HashMap<Integer, Integer>();
     private HashMap<Integer, Food.Methods> methods = new HashMap<Integer, Food.Methods>();
 
@@ -117,13 +116,9 @@ public class FoodItem extends ItemFood
         }
     }
 
-    public void updateRecipe(int itemDamage, ArrayList<ItemStack> itemStacks)
-    {
-        this.recipes.put(itemDamage, itemStacks);
-    }
-
     public void calculateValues(int itemDamage)
     {
+        /*
         ArrayList<ItemStack> arrayList = this.recipes.get(itemDamage);
 
         int healAmount = 0;
@@ -131,10 +126,12 @@ public class FoodItem extends ItemFood
         healAmount = this.calculateItemValue(itemDamage, arrayList, healAmount);
 
         this.healAmounts.put(itemDamage, healAmount);
+        */
     }
 
     private int calculateItemValue(int itemDamage, ArrayList<ItemStack> arrayList, int healAmount)
     {
+        /*
         for (ItemStack stack : arrayList)
         {
             Item item = stack.getItem();
@@ -163,6 +160,7 @@ public class FoodItem extends ItemFood
                 healAmount += method.getHungerBonus();
             }
         }
+        */
         return healAmount;
     }
 

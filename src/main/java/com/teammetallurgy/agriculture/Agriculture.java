@@ -57,7 +57,6 @@ public class Agriculture
     public void init(FMLInitializationEvent event)
     {
         NetworkRegistry.INSTANCE.registerGuiHandler(Agriculture.instance, new GuiHandler());
-        ItemList.initRecipes();
         ItemList.recalculateValues();
         GameRegistry.registerWorldGenerator(new WorldGenSalt(), 0);
         GameRegistry.registerWorldGenerator(new WorldGenPlants(), 0);
@@ -68,7 +67,7 @@ public class Agriculture
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        Recipes.createRecipes();
+        Recipes.create();
     }
 
     @EventHandler

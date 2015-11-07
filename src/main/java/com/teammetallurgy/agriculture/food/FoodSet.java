@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.HashMap;
-import java.util.Set;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -14,7 +13,6 @@ import com.google.gson.Gson;
 import com.teammetallurgy.agriculture.Agriculture;
 import com.teammetallurgy.agriculture.food.Food.FoodType;
 import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
-import com.teammetallurgy.agriculture.recpies.Recipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -27,23 +25,12 @@ public class FoodSet
     private HashMap<String, ItemStack> itemStacks = new HashMap<String, ItemStack>();
 
     private FoodItem defaultItem;
-    private HashMap<String, String[]> recipes = new HashMap<String, String[]>();
 
     public FoodSet(String setName)
     {
         this.name = setName;
         this.setTag = this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
         this.initDefaults();
-    }
-
-    public String[] getRecipe(String food)
-    {
-        return this.recipes.get(food);
-    }
-
-    public Set<String> getRecipes()
-    {
-        return this.recipes.keySet();
     }
 
     private void initDefaults()
@@ -93,28 +80,6 @@ public class FoodSet
             OreDictionary.registerOre(oreDicPrefix + tag, stack);
 
             this.itemStacks.put(tag, stack);
-
-            if (food.method == Food.Methods.process && food.recipe != null)
-            {
-                if (food.recipe.length == 1)
-                {
-                    String oreDicInput = "food" + food.recipe[0].replace(" ", "");
-                    Recipes.addProcessorRecipeOreDic(oreDicInput, "", "food" + tag);
-                }
-                if (food.recipe.length == 2)
-                {
-                    String OreDicInput1 = "food" + food.recipe[0].replace(" ", "");
-                    String OreDicInput2 = "food" + food.recipe[1].replace(" ", "");
-
-                    Recipes.addProcessorRecipeOreDic(OreDicInput1, OreDicInput2, "food" + tag);
-                }
-
-            }
-
-            if (food.recipe != null)
-            {
-                this.recipes.put(tag, food.recipe);
-            }
         }
     }
 
