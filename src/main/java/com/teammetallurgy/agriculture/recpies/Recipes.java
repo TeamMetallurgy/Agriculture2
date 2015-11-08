@@ -10,11 +10,21 @@ import com.teammetallurgy.agriculture.food.Food.FoodType;
 import com.teammetallurgy.agriculture.handler.AgricultureLogHandler;
 
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Recipes
 {
     private static HashMap<String, String> predefinedOreDicNames = new HashMap<String, String>();
+    private static ArrayList<RecipeBrewer> brewerRecipes = new ArrayList<RecipeBrewer>();
+    private static ArrayList<RecipeCoolent> coolentRecipes = new ArrayList<RecipeCoolent>();
+    private static ArrayList<RecipeCounter> counterRecipes = new ArrayList<RecipeCounter>();
+    private static ArrayList<RecipeFrier> frierRecipes = new ArrayList<RecipeFrier>();
+    private static ArrayList<RecipeIceBox> iceBoxRecipes = new ArrayList<RecipeIceBox>();
+    private static ArrayList<RecipeOven> ovenRecipes = new ArrayList<RecipeOven>();
     private static ArrayList<RecipeProcessor> processorRecipes = new ArrayList<RecipeProcessor>();
 
     public static void create()
@@ -80,21 +90,25 @@ public class Recipes
                 continue;
             }
 
-            AgricultureLogHandler.info("Couldn't find ingreadiant '" + food.recipe[i] + "' for '" + food.getName() + "'" );
+            AgricultureLogHandler.info("Couldn't find ingreadiant '" + food.recipe[i] + "' for '" + food.getName() + "'");
             return;
         }
 
         switch (food.method)
         {
             case bake:
+                addOreDicOvenRecipe(foodSet.getItemStack(food.getName()), ingredientsOreDic[0]);
                 break;
             case brew:
                 break;
             case freeze:
+                addOreDicIceBoxRecipe(foodSet.getItemStack(food.getName()), ingredientsOreDic[0]);
                 break;
             case fry:
+                addOreDicFrierRecipe(foodSet.getItemStack(food.getName()), ingredientsOreDic[0]);
                 break;
             case prepare:
+                addOreDicCounterRecipe(foodSet.getItemStack(food.getName()), ingredientsOreDic);
                 break;
             case process:
                 addOreDicProcessRecipe(foodSet.getItemStack(food.getName()), ingredientsOreDic);
@@ -117,6 +131,112 @@ public class Recipes
     public static String getPredefinedOreDicName(String name)
     {
         return predefinedOreDicNames.get(name);
+    }
+
+    public static void addBrewerRecipe(String outputFluid, String baseFluid, ItemStack ingredient)
+    {
+        FluidStack output = FluidRegistry.getFluidStack(outputFluid, FluidContainerRegistry.BUCKET_VOLUME);
+        FluidStack base = FluidRegistry.getFluidStack(baseFluid, FluidContainerRegistry.BUCKET_VOLUME);
+
+        if (output != null && base != null)
+        {
+            brewerRecipes.add(new RecipeBrewer(ingredient, base, output));
+        }
+    }
+
+    public static void addOreDicBrewerRecipe(String outputFluid, String baseFluid, String ingredient)
+    {
+        FluidStack output = FluidRegistry.getFluidStack(outputFluid, FluidContainerRegistry.BUCKET_VOLUME);
+        FluidStack base = FluidRegistry.getFluidStack(baseFluid, FluidContainerRegistry.BUCKET_VOLUME);
+        ArrayList<ItemStack> ingredientList = OreDictionary.getOres(ingredient);
+
+        if (output != null && base != null && ingredientList != null && ingredientList.size() > 0)
+        {
+            ItemStack[] ingredients = ingredientList.toArray(new ItemStack[ingredientList.size()]);
+            brewerRecipes.add(new RecipeBrewer(ingredients, base, output));
+        }
+    }
+
+    public static void addCoolentRecipe(ItemStack coolent, int ticks, int temp)
+    {
+        coolentRecipes.add(new RecipeCoolent(coolent, ticks, temp));
+    }
+
+    public static void addOreDicCoolentRecipe(String coolent, int ticks, int temp)
+    {
+        ArrayList<ItemStack> coolentList = OreDictionary.getOres(coolent);
+        if (coolentList != null && coolentList.size() > 0)
+        {
+            ItemStack[] coolents = coolentList.toArray(new ItemStack[coolentList.size()]);
+            coolentRecipes.add(new RecipeCoolent(coolents, ticks, temp));
+        }
+    }
+
+    public static void addCounterRecipe(ItemStack output, ItemStack... ingredients)
+    {
+        counterRecipes.add(new RecipeCounter(output, ingredients));
+    }
+
+    public static void addOreDicCounterRecipe(ItemStack output, String... ingredients)
+    {
+        ArrayList<ArrayList<ItemStack>> allIngredientsList = new ArrayList<ArrayList<ItemStack>>();
+        for (String ingredient : ingredients)
+        {
+            ArrayList<ItemStack> ingredientsList = OreDictionary.getOres(ingredient);
+            if (ingredientsList == null || ingredientsList.size() <= 0)
+            {
+                AgricultureLogHandler.warn("Couldn't find oredic ingredient '" + ingredient + "' for " + output.getUnlocalizedName() + " counter recipe, skipping...");
+                return;
+            }
+            allIngredientsList.add(ingredientsList);
+        }
+
+        counterRecipes.add(new RecipeCounter(output, allIngredientsList));
+    }
+
+    public static void addFrierRecipe(ItemStack output, ItemStack ingredient)
+    {
+        frierRecipes.add(new RecipeFrier(ingredient, 100, output));
+    }
+
+    public static void addOreDicFrierRecipe(ItemStack output, String ingredient)
+    {
+        ArrayList<ItemStack> ingredientList = OreDictionary.getOres(ingredient);
+        if (ingredientList != null && ingredientList.size() > 0)
+        {
+            ItemStack[] ingredients = ingredientList.toArray(new ItemStack[ingredientList.size()]);
+            frierRecipes.add(new RecipeFrier(ingredients, 100, output));
+        }
+    }
+
+    public static void addIceBoxRecipe(ItemStack output, ItemStack ingredient)
+    {
+        iceBoxRecipes.add(new RecipeIceBox(ingredient, -10, output));
+    }
+
+    public static void addOreDicIceBoxRecipe(ItemStack output, String ingredient)
+    {
+        ArrayList<ItemStack> ingredientList = OreDictionary.getOres(ingredient);
+        if (ingredientList != null && ingredientList.size() > 0)
+        {
+            ItemStack[] ingredients = ingredientList.toArray(new ItemStack[ingredientList.size()]);
+            iceBoxRecipes.add(new RecipeIceBox(ingredients, -10, output));
+        }
+    }
+
+    public static void addOvenRecipe(ItemStack output, ItemStack ingredient)
+    {
+        ovenRecipes.add(new RecipeOven(ingredient, 250, output));
+    }
+
+    public static void addOreDicOvenRecipe(ItemStack output, String ingredient)
+    {
+        ArrayList<ItemStack> ingredientList = OreDictionary.getOres(ingredient);
+        if (ingredientList != null && ingredientList.size() > 0)
+        {
+            ItemStack[] ingredients = ingredientList.toArray(new ItemStack[ingredientList.size()]);
+            ovenRecipes.add(new RecipeOven(ingredients, 250, output));
+        }
     }
 
     public static void addProcessorRecipe(ItemStack output, ItemStack... ingredients)
