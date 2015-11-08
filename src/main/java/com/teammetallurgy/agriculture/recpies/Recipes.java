@@ -49,26 +49,26 @@ public class Recipes
 
     private static void addOreDicRecipe(FoodSet foodSet, Food food)
     {
-        String[] ingreadientsOreDic = new String[food.recipe.length];
+        String[] ingredientsOreDic = new String[food.recipe.length];
 
-        for (int i = 0; i < ingreadientsOreDic.length; i++)
+        for (int i = 0; i < ingredientsOreDic.length; i++)
         {
-            Food ingreadient = foodSet.getFoodInfo(food.recipe[i]);
+            Food ingredient = foodSet.getFoodInfo(food.recipe[i]);
 
-            if (ingreadient != null)
+            if (ingredient != null)
             {
-                // Found a set ingreadient
+                // Found a set ingredient
 
-                String tag = ingreadient.getName().replace(" ", "");
+                String tag = ingredient.getName().replace(" ", "");
 
                 String oreDicPrefix = "crop";
 
-                if (ingreadient.type == FoodType.base || ingreadient.type == FoodType.edible)
+                if (ingredient.type == FoodType.base || ingredient.type == FoodType.edible)
                 {
                     oreDicPrefix = "food";
                 }
 
-                ingreadientsOreDic[i] = oreDicPrefix + tag;
+                ingredientsOreDic[i] = oreDicPrefix + tag;
                 continue;
             }
 
@@ -76,7 +76,7 @@ public class Recipes
             String oreDicName = getPredefinedOreDicName(food.recipe[i]);
             if (oreDicName != null)
             {
-                ingreadientsOreDic[i] = oreDicName;
+                ingredientsOreDic[i] = oreDicName;
                 continue;
             }
 
@@ -97,7 +97,7 @@ public class Recipes
             case prepare:
                 break;
             case process:
-                addOreDicProcessRecipe(foodSet.getItemStack(food.getName()), ingreadientsOreDic);
+                addOreDicProcessRecipe(foodSet.getItemStack(food.getName()), ingredientsOreDic);
                 break;
             default:
                 break;
@@ -119,40 +119,40 @@ public class Recipes
         return predefinedOreDicNames.get(name);
     }
 
-    public static void addProcessorRecipe(ItemStack output, ItemStack... ingreadients)
+    public static void addProcessorRecipe(ItemStack output, ItemStack... ingredients)
     {
-        if (ingreadients.length == 1 && ingreadients[0] != null)
+        if (ingredients.length == 1 && ingredients[0] != null)
         {
-            processorRecipes.add(new RecipeProcessor(ingreadients[0], output));
+            processorRecipes.add(new RecipeProcessor(ingredients[0], output));
         }
-        else if (ingreadients.length == 2 && ingreadients[0] != null && ingreadients[1] != null)
+        else if (ingredients.length == 2 && ingredients[0] != null && ingredients[1] != null)
         {
-            processorRecipes.add(new RecipeProcessor(ingreadients[0], ingreadients[1], output));
+            processorRecipes.add(new RecipeProcessor(ingredients[0], ingredients[1], output));
         }
     }
 
-    public static void addOreDicProcessRecipe(ItemStack output, String... ingreadients)
+    public static void addOreDicProcessRecipe(ItemStack output, String... ingredients)
     {
-        if (ingreadients.length == 1 && ingreadients[0] != null)
+        if (ingredients.length == 1 && ingredients[0] != null)
         {
-            ArrayList<ItemStack> oreDicIngreadientList = OreDictionary.getOres(ingreadients[0]);
-            if (oreDicIngreadientList != null && oreDicIngreadientList.size() > 0)
+            ArrayList<ItemStack> oreDicIngredientList = OreDictionary.getOres(ingredients[0]);
+            if (oreDicIngredientList != null && oreDicIngredientList.size() > 0)
             {
-                ItemStack[] oreDicIngreadient = oreDicIngreadientList.toArray(new ItemStack[oreDicIngreadientList.size()]);
+                ItemStack[] oreDicIngreadient = oreDicIngredientList.toArray(new ItemStack[oreDicIngredientList.size()]);
                 processorRecipes.add(new RecipeProcessor(oreDicIngreadient, output));
             }
         }
-        else if (ingreadients.length == 2 && ingreadients[0] != null && ingreadients[1] != null)
+        else if (ingredients.length == 2 && ingredients[0] != null && ingredients[1] != null)
         {
-            ArrayList<ItemStack> oreDicIngreadientList1 = OreDictionary.getOres(ingreadients[0]);
-            ArrayList<ItemStack> oreDicIngreadientList2 = OreDictionary.getOres(ingreadients[1]);
+            ArrayList<ItemStack> oreDicIngredientList1 = OreDictionary.getOres(ingredients[0]);
+            ArrayList<ItemStack> oreDicIngredienttList2 = OreDictionary.getOres(ingredients[1]);
 
-            if (oreDicIngreadientList1 != null && oreDicIngreadientList1.size() > 0 && oreDicIngreadientList2 != null && oreDicIngreadientList2.size() > 0)
+            if (oreDicIngredientList1 != null && oreDicIngredientList1.size() > 0 && oreDicIngredienttList2 != null && oreDicIngredienttList2.size() > 0)
             {
-                ItemStack[] oreDicIngreadient1 = oreDicIngreadientList1.toArray(new ItemStack[oreDicIngreadientList1.size()]);
-                ItemStack[] oreDicIngreadient2 = oreDicIngreadientList2.toArray(new ItemStack[oreDicIngreadientList2.size()]);
+                ItemStack[] oreDicIngredient1 = oreDicIngredientList1.toArray(new ItemStack[oreDicIngredientList1.size()]);
+                ItemStack[] oreDicIngredient2 = oreDicIngredienttList2.toArray(new ItemStack[oreDicIngredienttList2.size()]);
 
-                processorRecipes.add(new RecipeProcessor(oreDicIngreadient1, oreDicIngreadient2, output));
+                processorRecipes.add(new RecipeProcessor(oreDicIngredient1, oreDicIngredient2, output));
             }
         }
     }

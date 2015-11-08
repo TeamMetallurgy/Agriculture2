@@ -87,10 +87,10 @@ public class ProcessorRecipeHandler extends TemplateRecipeHandler
 
         for (RecipeProcessor recipe : Recipes.getProcessorRecipes())
         {
-            ItemStack[] ingreadients = recipe.getInputs(0);
-            for (ItemStack ingreadient : ingreadients)
+            ItemStack[] ingredients = recipe.getInputs(0);
+            for (ItemStack recipeIngredient : ingredients)
             {
-                if (OreDictionary.itemMatches(ingreadient, ingredient, false))
+                if (OreDictionary.itemMatches(recipeIngredient, ingredient, false))
                 {
                     CachedProcessorRecipe cachedRecipe = new CachedProcessorRecipe(recipe.getInputs(0), recipe.getInputs(1), recipe.getOutput());
                     cachedRecipe.setIngredientPermutation(Arrays.asList(cachedRecipe.ingredinets.get(0)), ingredient);
@@ -98,10 +98,10 @@ public class ProcessorRecipeHandler extends TemplateRecipeHandler
                 }
             }
 
-            ingreadients = recipe.getInputs(1);
-            for (ItemStack ingreadient : ingreadients)
+            ingredients = recipe.getInputs(1);
+            for (ItemStack recipeIngredient : ingredients)
             {
-                if (OreDictionary.itemMatches(ingreadient, ingredient, false))
+                if (OreDictionary.itemMatches(recipeIngredient, ingredient, false))
                 {
                     CachedProcessorRecipe cachedRecipe = new CachedProcessorRecipe(recipe.getInputs(0), recipe.getInputs(1), recipe.getOutput());
                     cachedRecipe.setIngredientPermutation(Arrays.asList(cachedRecipe.ingredinets.get(1)), ingredient);
