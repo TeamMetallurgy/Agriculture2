@@ -80,7 +80,7 @@ public class Agriculture
     private void setCreativeTabsIcons()
     {
         
-        creativeTabFood.setItemStack(ItemList.getItemStack("base", "CaramelAppleWithNuts"));
+        creativeTabFood.setItemStack(ItemList.getItemStack("base", "Caramel Apple With Nuts"));
         creativeTabBlock.setItem(BlockList.counter);
     }
 }
