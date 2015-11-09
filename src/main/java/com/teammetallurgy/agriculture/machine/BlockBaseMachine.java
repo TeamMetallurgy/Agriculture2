@@ -5,11 +5,9 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -25,6 +23,7 @@ public abstract class BlockBaseMachine extends BlockContainer
         super(Material.rock);
         this.setBlockTextureName("minecraft:brick");
         this.setHardness(3F);
+        this.setCreativeTab(Agriculture.instance.creativeTabBlock);
     }
 
     @Override
@@ -105,12 +104,6 @@ public abstract class BlockBaseMachine extends BlockContainer
                 break;
         }
 
-    }
-
-    @Override
-    public CreativeTabs getCreativeTabToDisplayOn()
-    {
-        return Agriculture.instance.creativeTabBlock;
     }
 
     @Override
