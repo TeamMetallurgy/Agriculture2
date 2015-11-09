@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 public abstract class TileEntityBaseMachine extends TileEntity implements ISidedInventory
 {
     protected byte facing = 0;
-    ItemStack[] inventory;
+    protected ItemStack[] inventory;
 
     public TileEntityBaseMachine(int inventorySize)
     {

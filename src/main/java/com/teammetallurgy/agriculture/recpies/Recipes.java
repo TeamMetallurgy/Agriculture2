@@ -279,8 +279,18 @@ public class Recipes
 
     public static ItemStack getProcessorRecipeOutput(ItemStack... ingredents)
     {
-        // TODO: Rewrite
-        return null;
+        if (ingredents == null || ingredents.length <= 0) return null;
+
+        ItemStack result = null;
+        for (RecipeProcessor recipe : processorRecipes)
+        {
+            if (recipe.isInput(ingredents))
+            {
+                result = recipe.getOutput();
+            }
+        }
+        return result;
+
     }
 
     public static RecipeProcessor[] getProcessorRecipes()

@@ -45,6 +45,14 @@ public class RecipeProcessor
                 if (OreDictionary.itemMatches(ingredient, input, false)) { return true; }
             }
         }
+        else if (inputs.length == 2 && inputs[0] != null && inputs[1] == null)
+        {
+            ItemStack input = inputs[0];
+            for (ItemStack ingredient : ingredientStacks1)
+            {
+                if (OreDictionary.itemMatches(ingredient, input, false)) { return true; }
+            }
+        }
         else if (inputs.length == 2 && inputs[0] != null && inputs[1] != null)
         {
             boolean matchedFirst = false;
