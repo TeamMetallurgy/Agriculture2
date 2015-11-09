@@ -3,10 +3,6 @@ package com.teammetallurgy.agriculture.machine.frier;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.util.ResourceLocation;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.FMLClientHandler;
-
 public class GuiFrier extends GuiContainer
 {
 
@@ -18,13 +14,10 @@ public class GuiFrier extends GuiContainer
     }
 
     @Override
-    protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_)
+    protected void drawGuiContainerBackgroundLayer(float partialRenderTicks, int mouseX, int mouseZ)
     {
-        GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glColor3f(1.0F, 1.0F, 1.0F);
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
+        mc.renderEngine.bindTexture(texture);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-        GL11.glEnable(GL11.GL_LIGHTING);
     }
 
 }
