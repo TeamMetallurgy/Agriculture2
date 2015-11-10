@@ -9,7 +9,21 @@ public class NEIAgricultureConfig implements IConfigureNEI
     @Override
     public void loadConfig()
     {
-        // TODO Add handlers
+        API.registerRecipeHandler(new BrewerRecipeHandler());
+        API.registerUsageHandler(new BrewerRecipeHandler());
+
+        API.registerRecipeHandler(new CounterRecipeHandler());
+        API.registerUsageHandler(new CounterRecipeHandler());
+
+        API.registerRecipeHandler(new FrierRecipeHandler());
+        API.registerUsageHandler(new FrierRecipeHandler());
+
+        API.registerRecipeHandler(new IceBoxRecipeHandler());
+        API.registerUsageHandler(new IceBoxRecipeHandler());
+
+        API.registerRecipeHandler(new OvenRecipeHandler());
+        API.registerUsageHandler(new OvenRecipeHandler());
+
         API.registerRecipeHandler(new ProcessorRecipeHandler());
         API.registerUsageHandler(new ProcessorRecipeHandler());
     }
