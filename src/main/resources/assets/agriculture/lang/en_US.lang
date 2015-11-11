@@ -12,6 +12,7 @@ container.frier=Frier
 
 tile.agriculture.icebox.name=Icebox
 container.icebox=Icebox
+nei.recipe.agriculture.icebox=Freezing
 
 tile.agriculture.oven.name=Oven
 container.oven=Oven

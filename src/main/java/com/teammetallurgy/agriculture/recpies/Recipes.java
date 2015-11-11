@@ -223,6 +223,13 @@ public class Recipes
             iceBoxRecipes.add(new RecipeIceBox(ingredients, -10, output));
         }
     }
+    
+    public static RecipeIceBox[] getIceboxRecipes()
+    {
+        RecipeIceBox[] recipes = new RecipeIceBox[iceBoxRecipes.size()];
+        recipes = iceBoxRecipes.toArray(recipes);
+        return recipes;
+    }
 
     public static void addOvenRecipe(ItemStack output, ItemStack ingredient)
     {
