@@ -209,6 +209,13 @@ public class Recipes
         }
     }
 
+    public static RecipeFrier[] getFrierRecipes()
+    {
+        RecipeFrier[] recipes = new RecipeFrier[frierRecipes.size()];
+        recipes = frierRecipes.toArray(recipes);
+        return recipes;
+    }
+
     public static void addIceBoxRecipe(ItemStack output, ItemStack ingredient)
     {
         iceBoxRecipes.add(new RecipeIceBox(ingredient, -10, output));
@@ -223,7 +230,7 @@ public class Recipes
             iceBoxRecipes.add(new RecipeIceBox(ingredients, -10, output));
         }
     }
-    
+
     public static RecipeIceBox[] getIceboxRecipes()
     {
         RecipeIceBox[] recipes = new RecipeIceBox[iceBoxRecipes.size()];
@@ -252,6 +259,7 @@ public class Recipes
         recipes = ovenRecipes.toArray(recipes);
         return recipes;
     }
+
     public static void addProcessorRecipe(ItemStack output, ItemStack... ingredients)
     {
         if (ingredients.length == 1 && ingredients[0] != null)

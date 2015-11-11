@@ -9,6 +9,7 @@ container.counter=Counter
 
 tile.agriculture.frier.name=Frier
 container.frier=Frier
+nei.recipe.agriculture.frier=Frying
 
 tile.agriculture.icebox.name=Icebox
 container.icebox=Icebox
