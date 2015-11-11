@@ -99,6 +99,11 @@ public class ProcessorRecipeHandler extends TemplateRecipeHandler
             }
 
             ingredients = recipe.getInputs(1);
+            if (ingredients == null)
+            {
+                continue;
+            }
+
             for (ItemStack recipeIngredient : ingredients)
             {
                 if (OreDictionary.itemMatches(recipeIngredient, ingredient, false))
