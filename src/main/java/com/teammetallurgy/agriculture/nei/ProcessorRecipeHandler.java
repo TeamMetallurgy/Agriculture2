@@ -50,6 +50,12 @@ public class ProcessorRecipeHandler extends TemplateRecipeHandler
     }
 
     @Override
+    public void drawExtras(int recipe)
+    {
+        drawProgressBar(91, 26, 177, 11, 23, 5, 48, 0);
+    }
+
+    @Override
     public void loadCraftingRecipes(String outputId, Object... results)
     {
         if (!outputId.equals("agriculture.processor.recipe") || !(getClass() == ProcessorRecipeHandler.class))
