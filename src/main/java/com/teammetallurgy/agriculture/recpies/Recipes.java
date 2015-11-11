@@ -239,6 +239,12 @@ public class Recipes
         }
     }
 
+    public static RecipeOven[] getOvenRecipes()
+    {
+        RecipeOven[] recipes = new RecipeOven[ovenRecipes.size()];
+        recipes = ovenRecipes.toArray(recipes);
+        return recipes;
+    }
     public static void addProcessorRecipe(ItemStack output, ItemStack... ingredients)
     {
         if (ingredients.length == 1 && ingredients[0] != null)

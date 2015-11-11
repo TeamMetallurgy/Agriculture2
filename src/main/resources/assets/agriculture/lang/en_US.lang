@@ -15,6 +15,7 @@ container.icebox=Icebox
 
 tile.agriculture.oven.name=Oven
 container.oven=Oven
+nei.recipe.agriculture.oven=Baking
 
 tile.agriculture.processor.name=Processor
 container.processor=Processor
