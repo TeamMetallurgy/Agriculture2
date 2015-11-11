@@ -6,6 +6,7 @@ container.brewer=Brewer
 
 tile.agriculture.counter.name=Counter
 container.counter=Counter
+nei.recipe.agriculture.counter=Preparing
 
 tile.agriculture.frier.name=Frier
 container.frier=Frier

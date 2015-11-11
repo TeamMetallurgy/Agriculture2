@@ -194,6 +194,13 @@ public class Recipes
         counterRecipes.add(new RecipeCounter(output, allIngredientsList));
     }
 
+    public static RecipeCounter[] getCounterRecipes()
+    {
+        RecipeCounter[] recipe = new RecipeCounter[counterRecipes.size()];
+        recipe = counterRecipes.toArray(recipe);
+        return recipe;
+    }
+
     public static void addFrierRecipe(ItemStack output, ItemStack ingredient)
     {
         frierRecipes.add(new RecipeFrier(ingredient, 100, output));
