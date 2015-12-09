@@ -2,6 +2,7 @@ package com.teammetallurgy.agriculture.block.plant;
 
 import java.util.Random;
 
+import vazkii.botania.api.item.IHornHarvestable;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
@@ -16,7 +17,7 @@ import com.teammetallurgy.agriculture.Agriculture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockPlant extends BlockCrops
+public class BlockPlant extends BlockCrops implements IHornHarvestable
 {
     protected ItemStack harvestItemStack;
     private IIcon plantIcons[];
@@ -115,5 +116,36 @@ public class BlockPlant extends BlockCrops
     {
         return Item.getItemFromBlock(this);
     }
+
+    /* IHornHarvestable implementation */
+    @Override
+    public boolean canHornHarvest(World world, int x, int y, int z, ItemStack stack, EnumHornType hornType)
+    {
+        int meta = world.getBlockMetadata(x, y, z);
+        if (meta > 0 && hornType == EnumHornType.WILD) { return true; }
+        return false;
+    }
+
+    @Override
+    public boolean hasSpecialHornHarvest(World world, int x, int y, int z, ItemStack stack, EnumHornType hornType)
+    {
+        return true;
+    }
+
+    @Override
+    public void harvestByHorn(World world, int x, int y, int z, ItemStack stack, EnumHornType hornType)
+    {
+        if (world.isRemote || hornType != EnumHornType.WILD) { return; }
+
+        int meta = world.getBlockMetadata(x, y, z);
+
+        if (meta > 0)
+        {
+            EntityItem item = new EntityItem(world, x, y, z, harvestItemStack.copy());
+            world.spawnEntityInWorld(item);
+            world.setBlockMetadataWithNotify(x, y, z, meta - 1, 2);
+        }
+    }
+    /* IHornHarvestable implementation - end */
 
 }
