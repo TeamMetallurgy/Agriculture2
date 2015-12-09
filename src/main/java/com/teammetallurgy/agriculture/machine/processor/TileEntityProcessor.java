@@ -1,12 +1,13 @@
 package com.teammetallurgy.agriculture.machine.processor;
 
+import vazkii.botania.api.item.IExoflameHeatable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 import com.teammetallurgy.agriculture.recpies.Recipes;
 
-public class TileEntityProcessor extends TileEntityBaseMachine
+public class TileEntityProcessor extends TileEntityBaseMachine implements IExoflameHeatable
 {
     private static final int[] INPUT_SLOT = new int[] { 1, 2 };
     private static final int FUEL_SLOT = 0;
@@ -209,4 +210,32 @@ public class TileEntityProcessor extends TileEntityBaseMachine
             }
         }
     }
+
+    /* IExoflameHeatable implementation */
+    @Override
+    public boolean canSmelt()
+    {
+        return canProcess();
+    }
+
+    @Override
+    public int getBurnTime()
+    {
+        return burningTicks;
+    }
+
+    @Override
+    public void boostBurnTime()
+    {
+        burningTicks = maxBurningTicks = 200;
+        markDirty();
+    }
+
+    @Override
+    public void boostCookTime()
+    {
+        // Boost not required
+    }
+
+    /* IExoflameHeatable implementation - end */
 }
