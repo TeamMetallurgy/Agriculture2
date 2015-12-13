@@ -22,6 +22,9 @@ public class TileEntityBrewer extends TileEntityBaseMachine implements IFluidHan
     private FluidTank rightTank = new FluidTank(8000);
     private static final int MAX_FLUID_TRANSFER = 1000;
 
+    public int burningTicks = 0;
+    public int maxBurningTicks;
+
     public TileEntityBrewer()
     {
         super(3);
@@ -72,7 +75,7 @@ public class TileEntityBrewer extends TileEntityBaseMachine implements IFluidHan
         return slotId == 2 && side == 0;
     }
 
-    // Implementing IFluidHandler
+    /* IFluidHandler implementation */
     @Override
     public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
     {
@@ -162,4 +165,6 @@ public class TileEntityBrewer extends TileEntityBaseMachine implements IFluidHan
         else if (facingDirection.getRight() == source) { return new FluidTankInfo[] { leftTank.getInfo() }; }
         return null;
     }
+
+    /* IFluidHandler implementation - end */
 }

@@ -4,10 +4,11 @@ import vazkii.botania.api.item.IExoflameHeatable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
+import com.teammetallurgy.agriculture.machine.IFueledMachine;
 import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 import com.teammetallurgy.agriculture.recpies.Recipes;
 
-public class TileEntityProcessor extends TileEntityBaseMachine implements IExoflameHeatable
+public class TileEntityProcessor extends TileEntityBaseMachine implements IExoflameHeatable, IFueledMachine
 {
     private static final int[] INPUT_SLOT = new int[] { 1, 2 };
     private static final int FUEL_SLOT = 0;
@@ -69,6 +70,13 @@ public class TileEntityProcessor extends TileEntityBaseMachine implements IExofl
         return side == 1 && slotId == 3;
     }
 
+    @Override
+    public boolean isBurning()
+    {
+        return burningTicks > 0;
+    }
+
+    @Override
     public int getScaledBurningTicks(int scale)
     {
         int displayTick = burningTicks;

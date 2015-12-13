@@ -9,10 +9,11 @@ import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 
+import com.teammetallurgy.agriculture.machine.IFueledMachine;
 import com.teammetallurgy.agriculture.machine.TileEntityBaseMachine;
 import com.teammetallurgy.agriculture.utils.AgricultureDirection;
 
-public class TileEntityFrier extends TileEntityBaseMachine implements IFluidHandler
+public class TileEntityFrier extends TileEntityBaseMachine implements IFluidHandler, IFueledMachine
 {
     private static final int[] INPUT_SLOTS = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     private static final int FUEL_SLOT = 0;
@@ -20,6 +21,9 @@ public class TileEntityFrier extends TileEntityBaseMachine implements IFluidHand
 
     private FluidTank tank = new FluidTank(8000);
     private static int MAX_FLUID_TRANSFER = 1000;
+
+    public int burningTicks = 0;
+    public int maxBurningTicks;
 
     public TileEntityFrier()
     {
@@ -72,7 +76,7 @@ public class TileEntityFrier extends TileEntityBaseMachine implements IFluidHand
         return side == 0 && slotId >= 2 && slotId <= 10;
     }
 
-    // Implementing IFluidHandler
+    /* IFluidHandler Implementation */
     public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
     {
         if (resource == null) { return 0; }
@@ -160,4 +164,28 @@ public class TileEntityFrier extends TileEntityBaseMachine implements IFluidHand
         else if (facingDirection.getRight() == source) { return new FluidTankInfo[] { tank.getInfo() }; }
         return null;
     }
+
+    /* IFluidHandler Implementation - end */
+
+    /* IFueledMachine implementation */
+    @Override
+    public boolean isBurning()
+    {
+        return burningTicks > 0;
+    }
+
+    @Override
+    public int getScaledBurningTicks(int scale)
+    {
+        int displayTick = burningTicks;
+
+        if (displayTick > maxBurningTicks)
+        {
+            displayTick = maxBurningTicks;
+        }
+
+        return displayTick * scale / maxBurningTicks;
+    }
+
+    /* IFueledMachine implementation - end */
 }
